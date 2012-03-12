@@ -14,8 +14,20 @@ if(isset($_GET["get"])) {
 
 	while($row = mysql_fetch_array($result))
 	{
-		echo $row[$_GET["get"]];
+		echo $row[$_GET["get"]];		
 		echo "<sep>";
+		if(isset($_GET["get2"])) {
+			echo $row[$_GET["get2"]];	
+			echo "<sep>";
+		}
+		if(isset($_GET["get3"])) {
+			echo $row[$_GET["get3"]];	
+			echo "<sep>";
+		}
+		if(isset($_GET["get4"])) {
+			echo $row[$_GET["get4"]];	
+			echo "<sep>";
+		}
 	}
 	mysql_close($con);
 }
