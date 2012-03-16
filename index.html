@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>YourBLog</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript">
+function login(){
+	
+	$.get('login.html', function(data) {
+  $('body').prepend(data);
+  $('#login').dialog();
+});
+}
+function submitlogin(){
+	//ADD LOGIN CHECK ETC
+	$('#login_wrapper').remove();
+	}
+</script>
+</head>
+
+<body>
+<div id="test"></div>
+<div id="header"> <img src="pics//Logo.png" alt="Logo" width="358" height="105" align="left" />
+</div>
+<div id="center">
+    <div id="titlebar">
+        <div id="tbutton" class="black" onclick="login();">LOGIN</div>
+        <div id="tbutton" class="black">HOME</div>
+        <div id="tbutton" class="black">ABOUT</div>
+	</div>
+
+  <div id="content">
+    <div class="entry">
+  <div id="c_top"> <b class="topic">Entry_01</b><hr /></div>
+  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor lgula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis. </div>
+  <div id="c_bottom">
+	  <hr />
+	  <div class="author">Author_01</div>
+	  <div class="date">14.03.2012</div>
+	  <div class="comment">comments</div>	  
+	</div>
+   </div>
+   <div class="entry">
+  <div id="c_top"> <b class="topic">Entry_02</b> <hr /></div>
+  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis.
+    uscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis. <br />
+    &nbsp; </div>
+  <div id="c_bottom"> 
+    <hr />
+	  <div class="author">Author_01</div>
+	  <div class="date">14.03.2012</div>
+	  <div class="comment">comments</div>	
+</div>
+    </div>
+    <div class="entry">
+  <div id="c_top"> <b class="topic">Entry_03</b><hr /> </div>
+  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros.    &nbsp; </div>
+  <div id="c_bottom"><hr />
+	  <div class="author">Author_01</div>
+	  <div class="date">14.03.2012</div>
+	  <div class="comment">comments</div>	
+    </div>
+    </div>
+    <div class="entry">
+  <div id="c_top"> <b class="topic">Entry_01</b><hr /> </div>
+  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis. <br />
+    &nbsp; </div>
+  <div id="c_bottom"><hr />
+	  <div class="author">Author_01</div>
+	  <div class="date">14.03.2012</div>
+	  <div class="comment">comments</div>	 </div>
+   </div>
+   <div class="entry">
+  <div id="c_top"> <b class="topic">Entry_02</b> <hr /></div>
+  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis.
+    uscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis. <br />
+    &nbsp; </div>
+  <div id="c_bottom"><hr />
+	  <div class="author">Author_01</div>
+	  <div class="date">14.03.2012</div>
+	  <div class="comment">comments</div>	 </div>
+    </div>
+    <div class="entry">
+  <div id="c_top"> <b class="topic">Entry_03</b> <hr /></div>
+  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros.    &nbsp; </div>
+  <div id="c_bottom"><hr />
+	  <div class="author">Author_01</div>
+	  <div class="date">14.03.2012</div>
+	  <div class="comment">comments</div>	</div>
+    </div>
+</div>
+<div id="sidebar">
+  <div id="s_top"><img src="pics//Top.png" /> </div>
+  <div id="s_center">Archive:
+    <ul>
+      2011
+      <li>Sep 2011</li>
+      <li>Sep 2011</li>
+      <li>Sep 2011</li>
+    </ul>
+    &nbsp; </div>
+  <div id="s_bottom"><img src="pics//Bottom.png" /></div>
+</div>
+</div>
+</body>
+</html>
