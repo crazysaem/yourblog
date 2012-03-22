@@ -47,7 +47,8 @@ $statement="SELECT E.ID,
 				U.Name AS User_Name,
 				E.Date 
 			FROM Entries E 
-			LEFT JOIN Users U ON E.User_ID = U.ID ".getwhere();
+			LEFT JOIN Users U ON E.User_ID = U.ID ".getwhere()."
+			ORDER BY E.Date ASC,E.ID ASC";
 //echo($statement);
 //queries the result from the database
 $result = mysql_query($statement,$con);
@@ -67,15 +68,17 @@ while($row = mysql_fetch_array($result))
 	  <div class="author">'.$row['User_Name'].'</div>
 	  <div class="date">'.$row['Date'].'</div>
 	  <div class="comment">
-	  	<a href="PHP/comments.php?gid='.$row['ID'].'">comments</a>
+	  	<a href="#" onclick="loadcomments('.$row['ID'].');" id="showcom_'.$row['ID'].'">show comments</a>
 	  </div>	  
 	</div>'
 	);
+	echo('<div class="comments" id="com_'.$row['ID'].'"></div>');
 	//close entrydiv
 	echo('</div>');
   }
 //close database connection
 mysql_close($con);
+//<a href="PHP/comments.php?gid='.$row['ID'].'">comments</a>
 ?>
 
 

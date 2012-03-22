@@ -15,11 +15,6 @@
 	input.text {width:95%; padding: .4em; }
 </style>
 <script type="text/javascript">
-function getSession(){
-	$.get('PHP/getsession.php', function(data) {
-		$('body').prepend(data); 
-	;});
-}
 
 </script>
 
@@ -35,7 +30,7 @@ function getSession(){
 <div id="titlebar">
         <!--<div id="tbutton" class="black" onclick="login();">LOGIN</div>-->
 		<button id="button-login">LOGIN</button>
-        <button id="button-home" onclick="getSession();">HOME</button>
+        <button id="button-home" onclick="window.location.href='index.html';">HOME</button>
         <button id="button-about">ABOUT</button>
 </div>
 

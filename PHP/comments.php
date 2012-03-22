@@ -12,19 +12,19 @@ $Cstatement="SELECT C.ID,
 			FROM Comments C
 			Left Join Users U ON U.ID = C.User_ID
 			WHERE Entry_ID =".$_GET["gid"]." ORDER BY ID ASC";
-$Estatement="SELECT E.ID,
+/* $Estatement="SELECT E.ID,
 				E.Title,
 				E.Text,
 				U.Name AS User_Name,
 				E.Date 
 			FROM Entries E 
 			LEFT JOIN Users U ON E.User_ID = U.ID 
-			WHERE E.ID =".$_GET["gid"]."";
+			WHERE E.ID =".$_GET["gid"].""; */
 //queries the result from the database
 $comresult = mysql_query($Cstatement,$con);
 
 //get the entrie again
-$enresult = mysql_query($Estatement,$con);
+/* $enresult = mysql_query($Estatement,$con);
 $entrie=mysql_fetch_array($enresult);
 	//open entriediv
   echo('<div class="entry">');
@@ -43,7 +43,7 @@ $entrie=mysql_fetch_array($enresult);
 	</div>'
 	);
 	//close entrydiv
-	echo('</div>');
+	echo('</div>'); */
 
 //output all results
 $c=1;
