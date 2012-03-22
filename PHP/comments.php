@@ -1,5 +1,3 @@
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-
 <?php
 
 //connects to the server and selects the yourblog database
@@ -50,13 +48,13 @@ $c=1;
 while($row = mysql_fetch_array($comresult))
   {
 	//open entriediv
-  echo('<div class="entry">');
+  echo('<div class="commentdiv">');
   //Topic output
-  echo('<div id="c_top"> <b class="topic">Comment '.$c++.' </b><hr /></div>');
+  echo('<div id="com_top"> <b class="topic">Comment '.$c++.' </b><hr /></div>');
   //Text output
-  echo(' <div id="c_center">'.$row['Comment'].'</div>');
+  echo(' <div id="com_center">'.$row['Comment'].'</div>');
   //Footer output
-  echo('<div id="c_bottom">
+  echo('<div id="com_bottom">
 	  <hr />
 	  <div class="author">'.$row['User_Name'].'</div>
 	  <div class="date">'.$row['Date'].'</div>
@@ -68,6 +66,24 @@ while($row = mysql_fetch_array($comresult))
   }
 //close database connection
 mysql_close($con);
+echo('
+<div class="commentdiv">
+<div id="com_top"> <b class="topic">Write Comment </b><hr /></div>
+<div id="com_center">
+<textarea id="write_com" name="write_com" cols="70" rows="7"></textarea><br/>
+<button id="submit_com">comment</button>
+<script type="text/javascript">$("#submit_com").button();</script>
+</div>
+<div id="com_bottom">
+	  <hr />
+	  <div class="author"></div>
+	  <div class="date"></div>
+	  <div class="comment" >
+	  <a href="javascript:loadcomments('.$_GET["gid"].');" id="showcom_'.$_GET["gid"].'">hide comments</a></div>	  
+</div>
+</div>
+
+');
 ?>
 
 
