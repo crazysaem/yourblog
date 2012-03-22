@@ -1,4 +1,4 @@
-<?php include '../connect.php'; 
+<?php include '../PHP/connect.php'; 
 
 if(isset($_GET["get"])) {
 

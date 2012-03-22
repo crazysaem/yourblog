@@ -110,6 +110,13 @@ body {
 .date {
 	float:right;
 }
+#login_info{
+	width:100%px;
+	height:20px;
+	text-align:right;
+	padding-right:27px;
+	
+	}
 #titlebar{
 	width:962px;
 	display:block;

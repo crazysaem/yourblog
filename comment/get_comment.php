@@ -1,4 +1,4 @@
-<?php include '../connect.php'; 
+<?php include '../PHP/connect.php'; 
 
 //$result = mysql_query("SELECT * FROM comment WHERE blog_entry_id=".$_GET["blog_entry_id"]);
 

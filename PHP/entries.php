@@ -1,4 +1,4 @@
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
 
 <?php
 function getwhere(){
