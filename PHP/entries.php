@@ -1,4 +1,3 @@
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
 
 <?php
 function getwhere(){
@@ -49,7 +48,7 @@ $statement="SELECT E.ID,
 				E.Date 
 			FROM Entries E 
 			LEFT JOIN Users U ON E.User_ID = U.ID ".getwhere();
-echo($statement);
+//echo($statement);
 //queries the result from the database
 $result = mysql_query($statement,$con);
 
@@ -68,7 +67,7 @@ while($row = mysql_fetch_array($result))
 	  <div class="author">'.$row['User_Name'].'</div>
 	  <div class="date">'.$row['Date'].'</div>
 	  <div class="comment">
-	  	<a href="comments.php?gid='.$row['ID'].'">comments</a>
+	  	<a href="PHP/comments.php?gid='.$row['ID'].'">comments</a>
 	  </div>	  
 	</div>'
 	);

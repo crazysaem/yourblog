@@ -1,5 +1,30 @@
 // JavaScript Document
-
+//initialise the Login Dialog
+$(function() {
+	$.get('login.html', function(data) {
+	$('body').prepend(data);  
+	$('#login').dialog({
+			autoOpen: false,
+			title: "Login",
+			height: 'auto',
+			width: 350,
+			resizable: false,
+			modal: true,
+			buttons: {
+				"Ok": function() { 
+					submitlogin();
+					$(this).dialog("close"); 
+					$(this).addClass("dialog-button");
+				}, 
+				"Cancel": function() { 
+					$(this).dialog("close"); 
+					$(this).addClass("dialog-button");
+				} 
+			}
+			
+		}); 
+	});
+});
 //init the login Button
 $(function() {
 	$('#button-login').button().on("click.login",

@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/loadentries.js"></script>
 <style>
 	form, .ui-dialog-titlebar, .ui-button-text { font-size: 62.5%; }
 	label, input { display:block; }
@@ -19,31 +20,7 @@ function getSession(){
 		$('body').prepend(data); 
 	;});
 }
-$(function() {
-	$.get('login.html', function(data) {
-	$('body').prepend(data);  
-	$('#login').dialog({
-			autoOpen: false,
-			title: "Login",
-			height: 'auto',
-			width: 350,
-			resizable: false,
-			modal: true,
-			buttons: {
-				"Ok": function() { 
-					submitlogin();
-					$(this).dialog("close"); 
-					$(this).addClass("dialog-button");
-				}, 
-				"Cancel": function() { 
-					$(this).dialog("close"); 
-					$(this).addClass("dialog-button");
-				} 
-			}
-			
-		}); 
-	});
-});
+
 </script>
 
 </head>
@@ -63,16 +40,7 @@ $(function() {
 </div>
 
   <div id="content">
-    <div class="entry">
-  <div id="c_top"> <b class="topic">Entry_01</b><hr /></div>
-  <div id="c_center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor ligula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices vulputate fringilla. Sed dolor lgula, pharetra at suscipit in, tempus vitae turpis. Fusce volutpat ligula eros. Donec gravida dictum nunc, non ultrices metus fermentum vitae. Phasellus vel augue at risus aliquet laoreet. Phasellus commodo, nulla vitae ornare mollis, justo dolor tristique magna, quis porttitor elit nunc eu nibh. Proin viverra nisl dapibus ligula volutpat sagittis. Morbi neque leo, faucibus sit amet viverra ut, placerat a sem. Integer augue leo, bibendum sed sodales eu, tristique eu eros. Phasellus vitae dapibus tellus. Aliquam vel neque purus, a condimentum ante. In luctus sodales urna vel semper. Aenean elit turpis, pellentesque in consequat pharetra, vestibulum at ipsum. Fusce cursus elit ut libero congue eget laoreet metus blandit. Sed non tincidunt dolor. Morbi luctus egestas sagittis. </div>
-  <div id="c_bottom">
-	  <hr />
-	  <div class="author">Author_01</div>
-	  <div class="date">14.03.2012</div>
-	  <div class="comment">comments</div>	  
-	</div>
-   </div>
+   
 </div>
 <div id="sidebar">
   <div id="s_top"><img src="pics//Top.png" /> </div>
