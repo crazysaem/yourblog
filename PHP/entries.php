@@ -68,7 +68,7 @@ while($row = mysql_fetch_array($result))
 	  <div class="author">'.$row['User_Name'].'</div>
 	  <div class="date">'.$row['Date'].'</div>
 	  <div class="comment">
-	  	<a href="#" onclick="loadcomments('.$row['ID'].');" id="showcom_'.$row['ID'].'">show comments</a>
+	  	<a href="javascript:loadcomments('.$row['ID'].');" id="showcom_'.$row['ID'].'">show comments</a>
 	  </div>	  
 	</div>'
 	);
