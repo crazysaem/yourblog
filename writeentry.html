@@ -1,12 +1,10 @@
 
-<link href="css/style.css" rel="stylesheet" type="text/css">
-
 <div class="entry">
   <div id="c_top"> <b class="topic">Write a new entry</b><hr /></div>
   <div id="c_center">
-  <input name="Ntitle" type="text" value="your title goes here" size="50" maxlength="100" />
+  <input id="titlewrite" name="Ntitle" type="text" value="your title goes here" size="50" maxlength="100" />
   <br /><br />
-  <textarea name="Nentry" cols="70" rows="14">your entry goes here</textarea><br /><br /><input class="black" id="Sentry" type="button" value="Submit entry" /></div>
+  <textarea id="textwrite" name="Nentry" cols="70" rows="14">your entry goes here</textarea><br /><br /><input id="Sentry" type="button" value="Submit entry" /></div>
   <div id="c_bottom">
     
 	  <hr />
@@ -14,10 +12,9 @@
   </div>
    </div>
    
-<script type="text/javascript" src="jQuery/jquery.js"></script>
 <script type="text/javascript">$(document).ready(function() {
-   $("#Sentry").click(function(){
-	   alert("Send Entry");
+   $("#Sentry").button().click(function(){
+	   submitentrie();
 	   });
  });
 </script>  

@@ -1,0 +1,23 @@
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.18.custom.min.js"></script>
+<script type="text/javascript">
+
+function convertToHtml(rawtxt){
+	var html = rawtxt.replace("|B|","<b>");
+	var html = html.replace("|/B|","</b>");
+	var html = html.replace("|A",'<a href="');
+	var html = html.replace(" www.","http://www.");
+	var html = html.replace("|/A|","</a>");
+	var html = html.replace("||",'">');
+	return html;
+	}
+	
+function conv(){
+	var res=convertToHtml($('#in').val());
+	$('#out').html(res);
+	}
+</script>
+
+<input id="in" name="" type="text" onchange="conv();"/>
+<br />
+<div id="out"></div>
