@@ -33,11 +33,14 @@ $(function() {
 		});	
 	$('#button-home').button();
 	$('#button-about').button();
+<<<<<<< HEAD
 	$('#button-wentry').button().click(function(){
 		$.get('writeentry.html', function(data) {
 			$('#content').html(data);
 			});
 		});
+=======
+>>>>>>> 52efc761b7f347d866192c86f4a1a8218009b060
 	//check if there is an open Session
 	getrunningSession();
 	
