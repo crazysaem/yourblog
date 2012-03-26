@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="checklogin.php" server="yourblog.bplaced.net" local="129769191826257000" remote="129769236000000000" />
-<file name="comments.php" server="yourblog.bplaced.net" local="129769229188932000" remote="129769236000000000" />
+<file name="checklogin.php" server="yourblog.bplaced.net" local="129772581000000000" remote="129769200000000000" />
+<file name="comments.php" server="yourblog.bplaced.net" local="129772581000000000" remote="129769200000000000" />
 <file name="connect.php" server="yourblog.bplaced.net" local="129769093070842000" remote="129769236000000000" />
 <file name="endsession.php" server="yourblog.bplaced.net" local="129769184238319500" remote="129769236000000000" />
-<file name="entries.php" server="yourblog.bplaced.net" local="129769231097812000" remote="129769236000000000" />
+<file name="entries.php" server="yourblog.bplaced.net" local="129772581000000000" remote="129769200000000000" />
 <file name="getsession.php" server="yourblog.bplaced.net" local="129769204943712000" remote="129769236000000000" />
 <file name="getsessionName.php" server="yourblog.bplaced.net" local="129769195562052000" remote="129769236000000000" />
+<file name="register.php" server="yourblog.bplaced.net" local="129772581005643000" remote="129772545600000000" />
+<file name="submitcomment.php" server="yourblog.bplaced.net" local="129772581005643000" remote="129772545600000000" />
+<file name="submitentrie.php" server="yourblog.bplaced.net" local="129772581005668000" remote="129772545600000000" />
 </dwsync>

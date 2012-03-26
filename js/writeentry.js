@@ -72,6 +72,17 @@ function submitcomment($id){
 	});
 }
 
+function checkCap(){
+	if(Recaptcha.get_response().length>4 && Recaptcha.get_response())
+		return true;
+	else return false;
+//	$.get('PHP/evalcaptcha.php?recaptcha_challenge_field='+Recaptcha.get_challenge()+'&recaptcha_response_field='+Recaptcha.get_response(), 
+//		function(data) {
+//			alert(data); 
+//		}
+//	);
+}
+
 function register(){
 	//reset error fields
 	$("#pw_error").html("");
@@ -118,7 +129,8 @@ function register(){
 				http.onreadystatechange = function() {//Call a function when the state changes.
 					if(http.readyState == 4 && http.status == 200) {
 						if(http.responseText=="inserted"){
-						alert("You have been registered successfully!\nPlease login if you want to comment on entries.")
+						Recaptcha.destroy();
+						alert("You have been registered successfully!\nPlease login if you want to comment on entries.");
 						window.location.href='index.html';
 						}
 						else
@@ -128,4 +140,7 @@ function register(){
 				
 				http.send(params);
 		}
+		else{
+			 Recaptcha.reload();
+			}
 }
