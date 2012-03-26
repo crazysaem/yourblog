@@ -73,9 +73,9 @@ function submitlogin(){
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
 			var res = http.responseText;		
+			if(res.indexOf('<')>-1)
+				res=res.substring(0,res.indexOf('<'));
 			if(res!="NULL"){
-				if(res.indexOf('<')>-1)
-					res=res.substring(0,res.indexOf('<'));
 				$('#login_info').text("Welcome "+res);
 				changeLoginButton();
 			}
