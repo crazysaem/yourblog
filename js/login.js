@@ -74,6 +74,8 @@ function submitlogin(){
 		if(http.readyState == 4 && http.status == 200) {
 			var res = http.responseText;		
 			if(res!="NULL"){
+				if(res.indexOf('<')>-1)
+					res=res.substring(0,res.indexOf('<'));
 				$('#login_info').text("Welcome "+res);
 				changeLoginButton();
 			}

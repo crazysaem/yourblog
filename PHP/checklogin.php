@@ -19,12 +19,14 @@ $res=mysql_fetch_array($result);
 if($res){
 	//ret user ID
 	echo ($username);
+	session_destroy();
 	session_start();
 	$_SESSION['ID']=$res['ID'];
 	$_SESSION['Name']=$username;
 }
 else{
 	echo "NULL";
+	session_destroy();
 	$_SESSION['ID']="NULL";
 	$_SESSION['Name']="NULL";	
 }
