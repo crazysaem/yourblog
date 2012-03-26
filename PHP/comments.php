@@ -10,38 +10,9 @@ $Cstatement="SELECT C.ID,
 			FROM Comments C
 			Left Join Users U ON U.ID = C.User_ID
 			WHERE Entry_ID =".$_GET["gid"]." ORDER BY ID ASC";
-/* $Estatement="SELECT E.ID,
-				E.Title,
-				E.Text,
-				U.Name AS User_Name,
-				E.Date 
-			FROM Entries E 
-			LEFT JOIN Users U ON E.User_ID = U.ID 
-			WHERE E.ID =".$_GET["gid"].""; */
-//queries the result from the database
+
 $comresult = mysql_query($Cstatement,$con);
 
-//get the entrie again
-/* $enresult = mysql_query($Estatement,$con);
-$entrie=mysql_fetch_array($enresult);
-	//open entriediv
-  echo('<div class="entry">');
-  //Topic output
-  echo('<div id="c_top"> <b class="topic">'.$entrie['Title'].'</b><hr /></div>');
-  //Text output
-  echo(' <div id="c_center">'.$entrie['Text'].'</div>');
-  //Footer output
-  echo('<div id="c_bottom">
-	  <hr />
-	  <div class="author">'.$entrie['User_Name'].'</div>
-	  <div class="date">'.$entrie['Date'].'</div>
-	  <div class="comment">
-	  	See comments below!
-	  </div>	  
-	</div>'
-	);
-	//close entrydiv
-	echo('</div>'); */
 
 //output all results
 $c=1;
@@ -70,18 +41,22 @@ echo('
 <div class="commentdiv">
 <div id="com_top"> <b class="topic">Write Comment </b><hr /></div>
 <div id="com_center">
-<textarea id="write_com" name="write_com" cols="70" rows="7"></textarea><br/>
-<button id="submit_com">comment</button>
-<script type="text/javascript">$("#submit_com").button();</script>
+<textarea id="write_com'.$_GET["gid"].'" name="write_com" cols="70" rows="7"></textarea><br/>
+<button id="submit_com'.$_GET["gid"].'" >comment</button>
 </div>
 <div id="com_bottom">
 	  <hr />
 	  <div class="author"></div>
 	  <div class="date"></div>
 	  <div class="comment" >
-	  <a href="javascript:loadcomments('.$_GET["gid"].');" id="showcom_'.$_GET["gid"].'">hide comments</a></div>	  
+	  <a href="javascript:loadcomments('.$_GET["gid"].',0);" id="showcom_'.$_GET["gid"].'">hide comments</a></div>	  
 </div>
 </div>
+<script type="text/javascript">
+   $("#submit_com'.$_GET["gid"].'").button().click(function(){
+	   submitcomment('.$_GET["gid"].');
+	   });
+</script> 
 
 ');
 ?>

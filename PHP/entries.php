@@ -48,7 +48,7 @@ $statement="SELECT E.ID,
 				E.Date 
 			FROM Entries E 
 			LEFT JOIN Users U ON E.User_ID = U.ID ".getwhere()."
-			ORDER BY E.Date ASC,E.ID ASC";
+			ORDER BY E.Date DESC,E.ID DESC";
 //echo($statement);
 //queries the result from the database
 $result = mysql_query($statement,$con);
@@ -68,7 +68,7 @@ while($row = mysql_fetch_array($result))
 	  <div class="author">'.$row['User_Name'].'</div>
 	  <div class="date">'.$row['Date'].'</div>
 	  <div class="comment">
-	  	<a href="javascript:loadcomments('.$row['ID'].');" id="showcom_'.$row['ID'].'">show comments</a>
+	  	<a href="javascript:loadcomments('.$row['ID'].',0);" id="showcom_'.$row['ID'].'">show comments</a>
 	  </div>	  
 	</div>'
 	);

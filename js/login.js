@@ -40,7 +40,11 @@ $(function() {
 		});
 	//check if there is an open Session
 	getrunningSession();
-	
+	$("#button-register").button().click(function(){
+		$.get('register.html', function(data) {
+			$('#content').html(data);
+			});
+		});
 });
 
 //Checks if a Session is still open

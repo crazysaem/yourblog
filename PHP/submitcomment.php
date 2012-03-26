@@ -7,7 +7,7 @@ if(isset($_POST["guid"])){
 
 $eid="";
 if(isset($_POST["geid"])){
-	$uid=$_POST["geid"];
+	$eid=$_POST["geid"];
 }
 
 $txt="";
@@ -17,7 +17,7 @@ if(isset($_POST["gtxt"])){
 
 //connects to the server and selects the yourblog database
 include("connect.php"); //returns $con as connection to the yourblog database
-if($uid!="" && $uid!="NULL"){
+if($uid!="" && $uid!="NULL" && $txt!=""){
 	//get the users permission level
 	$checkPermission="SELECT UL.ID 
 					FROM Users U,User_Levels UL
