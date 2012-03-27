@@ -22,3 +22,17 @@ function checkCap(){
 //		}
 //	);
 }
+//used to identify the oldest loaded element
+cur_oldestID=0;
+
+cur_searchString="";
+//infinite scrolling...
+alreadyloading = false;
+$(window).scroll(function(){
+        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+           if (alreadyloading == false && cur_oldestID!=-1) {
+            alreadyloading = true;
+            appendentriews();
+        }
+        }
+});

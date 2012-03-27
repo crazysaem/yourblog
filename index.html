@@ -9,31 +9,17 @@
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
 <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
-
+<script type="text/javascript" src="js/helper.js"></script>  
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/entries.js"></script>
 <script type="text/javascript" src="js/comments.js"></script>
 <script type="text/javascript" src="js/register.js"></script>  
-<script type="text/javascript" src="js/helper.js"></script>   
+ 
 <style>
 	form, .ui-dialog-titlebar, .ui-button-text { font-size: 62.5%; }
 	label, input { display:block; }
 	input.text {width:95%; padding: .4em; }
 </style>
-<script type="text/javascript">
-cur_oldestID=0;
-//infinite scrolling...
-alreadyloading = false;
- 
-$(window).scroll(function() {
-    if ($('body').height() <= ($(window).height() + $(window).scrollTop())) {
-        if (alreadyloading == false && cur_oldestID!=-1) {
-            alreadyloading = true;
-            appendentriews();
-        }
-    }
-});
-</script>
 
 </head>
 

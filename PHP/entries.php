@@ -2,25 +2,25 @@
 <?php
 function getwhere(){
 	$statements = array ("","","","","","");
-	if(isset($_GET["gid"])){
+	if(isset($_GET["gid"]) && $_GET["gid"]!= ""){
 		$statements[0]="E.ID = ".$_GET["gid"];
 		}
-	if(isset($_GET["gtitle"])){
+	if(isset($_GET["gtitle"]) && $_GET["gtitle"]!= ""){
 		$statements[1]="E.Title LIKE '%".$_GET["gtitle"]."%'";
 		}
-	if(isset($_GET["gtxt"])){
+	if(isset($_GET["gtxt"]) && $_GET["gtxt"]!= ""){
 		$statements[2]="E.Text LIKE '%".$_GET["gtxt"]."%'";
 		}
-	if(isset($_GET["gauth"])){
+	if(isset($_GET["gauth"]) && $_GET["gauth"]!= ""){
 		$statements[3]='E.User_ID IN (SELECT ID 
 								FROM Users 
 								WHERE Name LIKE "%'.$_GET["gauth"].'%")';
 		}
-	if(isset($_GET["gdate"])){
+	if(isset($_GET["gdate"]) && $_GET["gdate"]!= ""){
 		$statements[4]="E.Date = ".$_GET["gdate"];
 		}
 	//check for oldest ID to get only newer entries
-	if(isset($_GET["goid"])){
+	if(isset($_GET["goid"]) && $_GET["goid"]!= ""){
 		$statements[5]="E.ID < ".$_GET["goid"];
 		}	
 	$count = 0;

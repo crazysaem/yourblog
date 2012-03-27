@@ -3,13 +3,13 @@
 loadnewentries();
 
 function loadnewentries(){
-$.get('PHP/entries.php', function(data) {
+$.get('PHP/entries.php?'+cur_searchString, function(data) {
 		$('#content').html(data); 
 	;});
 }
 
 function appendentriews(){
-$.get('PHP/entries.php?goid='+cur_oldestID, function(data) {
+$.get('PHP/entries.php?goid='+cur_oldestID+'&'+cur_searchString, function(data) {
 		$('#content').append(data); 
 		alreadyloading=false;
 	;});
