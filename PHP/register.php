@@ -14,9 +14,16 @@ if(isset($_POST["gpassw"])){
 include("connect.php"); //returns $con as connection to the yourblog database
 if($uname!=""){
 	//get the users permission level
-	$checkExist="SELECT U.Name FROM Users U WHERE U.Name = '".$uname."'";
+	$checkExist="SELECT 'TRUE' AS Exist 
+				FROM Users Uo
+				WHERE EXISTS(
+					SELECT 1 
+					FROM Users U 
+					WHERE U.Name='".$uname."' AND U.ID = Uo.ID
+				)";
 	$result = mysql_query($checkExist,$con);
-	if(!$result){
+	$res=mysql_fetch_array($result);
+	if($res["Exist"]=="TRUE"){
 		echo "exists";
 		}
 	else{

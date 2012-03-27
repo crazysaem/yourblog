@@ -4,16 +4,16 @@
     <hr /></div>
   <div id="c_center">
     <p>
-    <label for="username">username</label>
-  <input name="username" type="text" id="username" /><font class="errorl" id="un_error"></font>
+    <label for="regusername">username</label>
+  <input name="regusername" type="text" id="regusername" /><font class="errorl" id="un_error"></font>
   <br />
 
-  <label for="pword">password</label>
-  <input type="password" name="pword" id="pword" />  <font class="errorl" id="pw_error"></font>
+  <label for="regpword">password</label>
+  <input type="password" name="regpword" id="regpword" />  <font class="errorl" id="pw_error"></font>
   <br />
 
-  <label for="repass"> reenter password</label>
-  <input type="password" name="repass" id="repass" /><font class="errorl" id="repw_error"></font>
+  <label for="regrepass"> reenter password</label>
+  <input type="password" name="regrepass" id="regrepass" /><font class="errorl" id="repw_error"></font>
   <br />
   <div id="recap"></div>
   <script type="text/javascript">
@@ -26,8 +26,8 @@
   );
   </script>
   <br />
-  <input id="bregister" type="button" value="Submit" />
-  </p>
+  <input id="bregister" type="button" />
+  </p> 
   </div>
   <div id="c_bottom">
 
@@ -35,15 +35,18 @@
 	  
   </div>
    </div>
-   
+
 <script type="text/javascript">
-   $("#bregister").button().click(function(){
-	   if(checkCap()){
-		  register();
-	   }
-	   else{
-		   Recaptcha.reload();
-		   alert("Please reenter Captcha");
+
+$('#bregister').button().on("click.submit",function(){
+		   if(checkCap()){
+			  register();
 		   }
-	   });
+		   else{
+			   Recaptcha.reload();
+			   alert("Please reenter Captcha");
+			   }
+	   }	
+);
+$('#bregister').button( "option", "label", "Submit" );
 </script>  
