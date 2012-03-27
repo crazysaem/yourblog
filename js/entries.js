@@ -9,8 +9,9 @@ $.get('PHP/entries.php', function(data) {
 }
 
 function appendentriews(){
-$.get('PHP/entries.php', function(data) {
+$.get('PHP/entries.php?goid='+cur_oldestID, function(data) {
 		$('#content').append(data); 
+		alreadyloading=false;
 	;});
 }
 

@@ -21,7 +21,18 @@
 	input.text {width:95%; padding: .4em; }
 </style>
 <script type="text/javascript">
-
+cur_oldestID=0;
+//infinite scrolling...
+alreadyloading = false;
+ 
+$(window).scroll(function() {
+    if ($('body').height() <= ($(window).height() + $(window).scrollTop())) {
+        if (alreadyloading == false && cur_oldestID!=-1) {
+            alreadyloading = true;
+            appendentriews();
+        }
+    }
+});
 </script>
 
 </head>
