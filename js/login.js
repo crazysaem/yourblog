@@ -80,7 +80,9 @@ function submitlogin(){
 				changeLoginButton();
 			}
 			else{
-				$('#login_info').text("You are currently not logged in.");	
+				$('#login_info').text("You are currently not logged in.");
+				$('#login').dialog("open");
+				$('#login').parent().effect("shake", {times: 3}, 80);	
 			}
 		}
 	}
