@@ -38,3 +38,8 @@ $(window).scroll(function(){
         }
         }
 });
+
+function search(){
+	cur_searchString="gtxt="+$('#search').val()+"&gtitle="+$('#search').val()+"&gauth="+$('#search').val();
+	loadnewentries();
+}

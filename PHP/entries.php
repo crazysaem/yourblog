@@ -24,22 +24,33 @@ function getwhere(){
 		$statements[5]="E.ID < ".$_GET["goid"];
 		}	
 	$count = 0;
-	$and=0;
+	$or=0;
 	$res="";
 	//create where statement
-	while($count<=5){
+	while($count<=4){
 		if($statements[$count]!=""){
-			if($and>0){
-				$res.='AND '.$statements[$count];
+			if($or>0){
+				$res.='OR '.$statements[$count];
 			}
 			else{
-				$res.="WHERE ".$statements[$count];
-				$and+=1;
+				$res.="WHERE (".$statements[$count];
+				$or+=1;
 			}
 			$res.=" ";
 		}
 		$count++;
 	}
+	if($or>0)
+		$res.=")";
+	//DO THE FINAL PART
+	if($statements[5]!=""){
+			if($or>0){
+				$res.=' AND '.$statements[5];
+			}
+			else{
+				$res.="WHERE ".$statements[5];
+			}
+		}
 	return $res;
 }
 
