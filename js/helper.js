@@ -24,8 +24,10 @@ function checkCap(){
 }
 //used to identify the oldest loaded element
 cur_oldestID=0;
-
+//used for supporting search within the database
 cur_searchString="";
+//used to check which site is currently loaded
+cur_site="home";
 //infinite scrolling...
 alreadyloading = false;
 $(window).scroll(function(){
