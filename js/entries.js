@@ -5,6 +5,7 @@ loadnewentries();
 function loadnewentries(){
 $.get('PHP/entries.php?'+cur_searchString, function(data) {
 		$('#content').html(data); 
+		cur_site="home";
 	;});
 }
 
