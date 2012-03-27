@@ -31,7 +31,7 @@ $(function() {
 		function(){
 			$('#login').dialog("open");
 		});	
-	$('#button-home').button();
+	$('#button-home').button().click(function(){loadnewentries();});
 	$('#button-about').button();
 	$('#button-wentry').button().click(function(){
 		$.get('writeentry.html', function(data) {
