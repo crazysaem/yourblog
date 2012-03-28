@@ -14,8 +14,8 @@ $lvl=$Level['ID'];
 }
 if($lvl==0){
 	$statement="DELETE FROM Users WHERE ID = ".$_POST['pid'];
-	//echo($statement);
-	//queries the result from the database
+	$result = mysql_query($statement,$con);
+	$statement="DELETE FROM Comments WHERE User_ID = ".$_POST['pid'];
 	$result = mysql_query($statement,$con);
 	//close database connection
 }

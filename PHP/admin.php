@@ -14,7 +14,7 @@ $lvl=$Level['ID'];
 if($lvl==0){
 	//creates the SELECT statement
 	$statement="SELECT U.Name,U.ID
-				FROM Users U";
+				FROM Users U WHERE U.User_Level_ID > 0";
 	//echo($statement);
 	//queries the result from the database
 	$result = mysql_query($statement,$con);
