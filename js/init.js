@@ -57,6 +57,11 @@ $(function() {
 			}
 		});
 		
+	$('#button-admin').button().click(function(){
+		if(cur_site!="admin"){
+			loadadmin();
+		}
+		});
 		
 	$.get('PHP/gethistory.php', function(data) {
 			$('#s_center').html(data);

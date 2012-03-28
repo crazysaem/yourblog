@@ -34,7 +34,7 @@ cur_site="home";
 alreadyloading = false;
 $(window).scroll(function(){
         if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-           if (alreadyloading == false && cur_oldestID!=-1) {
+           if (alreadyloading == false && cur_oldestID!=-1 && cur_site=="home") {
             alreadyloading = true;
             appendentriews();
         }

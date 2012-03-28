@@ -17,7 +17,9 @@ function getwhere(){
 								WHERE Name LIKE "%'.$_GET["gauth"].'%")';
 		}
 	if(isset($_GET["gdate"]) && $_GET["gdate"]!= ""){
-		$statements[4]="(MONTH(E.Date) = MONTH(".$_GET["gdate"].") AND YEAR(E.Date) = YEAR(".$_GET["gdate"].") )";
+		$date=$_GET["gdate"];
+		$date=str_replace("\\","",$date);
+		$statements[4]="(MONTH(E.Date) = MONTH(".$date.") AND YEAR(E.Date) = YEAR(".$date.") )";
 	}
 		
 	//check for oldest ID to get only newer entries
