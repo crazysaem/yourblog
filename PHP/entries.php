@@ -17,8 +17,9 @@ function getwhere(){
 								WHERE Name LIKE "%'.$_GET["gauth"].'%")';
 		}
 	if(isset($_GET["gdate"]) && $_GET["gdate"]!= ""){
-		$statements[4]="E.Date = ".$_GET["gdate"];
-		}
+		$statements[4]="(MONTH(E.Date) = MONTH(".$_GET["gdate"].") AND YEAR(E.Date) = YEAR(".$_GET["gdate"].") )";
+	}
+		
 	//check for oldest ID to get only newer entries
 	if(isset($_GET["goid"]) && $_GET["goid"]!= ""){
 		$statements[5]="E.ID < ".$_GET["goid"];
@@ -26,8 +27,8 @@ function getwhere(){
 	$count = 0;
 	$or=0;
 	$res="";
-	//create where statement
-	while($count<=4){
+	//create THE OR statements
+	while($count<=3){
 		if($statements[$count]!=""){
 			if($or>0){
 				$res.='OR '.$statements[$count];
@@ -42,15 +43,21 @@ function getwhere(){
 	}
 	if($or>0)
 		$res.=")";
-	//DO THE FINAL PART
-	if($statements[5]!=""){
-			if($or>0){
-				$res.=' AND '.$statements[5];
+	$count=4;
+	//DO THE AND PART
+	while($count<=5){
+		if($statements[$count]!=""){
+				if($or>0){
+					$res.=' AND '.$statements[$count];
+				}
+				else{
+					$res.="WHERE ".$statements[$count];
+					$or++;
+				}
+				$res.=" ";
 			}
-			else{
-				$res.="WHERE ".$statements[5];
-			}
-		}
+		$count++;
+	}
 	return $res;
 }
 

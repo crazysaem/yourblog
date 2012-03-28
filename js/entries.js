@@ -3,14 +3,14 @@
 loadnewentries();
 
 function loadnewentries(){
-$.get('PHP/entries.php?'+cur_searchString, function(data) {
+$.get('PHP/entries.php?'+cur_searchString+'&'+cur_dateString, function(data) {
 		$('#content').html(data); 
 		cur_site="home";
 	;});
 }
 
 function appendentriews(){
-$.get('PHP/entries.php?goid='+cur_oldestID+'&'+cur_searchString, function(data) {
+$.get('PHP/entries.php?goid='+cur_oldestID+'&'+cur_searchString+'&'+cur_dateString, function(data) {
 		$('#content').append(data); 
 		alreadyloading=false;
 	;});

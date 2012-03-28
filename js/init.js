@@ -56,6 +56,12 @@ $(function() {
 				});
 			}
 		});
+		
+		
+	$.get('PHP/gethistory.php', function(data) {
+			$('#s_center').html(data);
+			CollapsibleLists.apply();
+		;});
 });
 
 //Checks if a Session is still open
