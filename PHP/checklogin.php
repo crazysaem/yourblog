@@ -2,7 +2,7 @@
 //connects to the server and selects the yourblog database
 include("connect.php");
 
-$username=$_POST['uname'];
+$username=mysql_real_escape_string($_POST['uname']);
 $password=md5($_POST['pass']);
 
 //creates the SELECT statement

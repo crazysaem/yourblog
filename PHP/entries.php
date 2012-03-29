@@ -2,29 +2,29 @@
 <?php
 function getwhere(){
 	$statements = array ("","","","","","");
-	if(isset($_GET["gid"]) && $_GET["gid"]!= ""){
-		$statements[0]="E.ID = ".$_GET["gid"];
+	if(isset($_GET["gid"]) && mysql_real_escape_string($_GET["gid"])!= ""){
+		$statements[0]="E.ID = ".mysql_real_escape_string($_GET["gid"]);
 		}
-	if(isset($_GET["gtitle"]) && $_GET["gtitle"]!= ""){
-		$statements[1]="E.Title LIKE '%".$_GET["gtitle"]."%'";
+	if(isset($_GET["gtitle"]) && mysql_real_escape_string($_GET["gtitle"])!= ""){
+		$statements[1]="E.Title LIKE '%".mysql_real_escape_string($_GET["gtitle"])."%'";
 		}
-	if(isset($_GET["gtxt"]) && $_GET["gtxt"]!= ""){
-		$statements[2]="E.Text LIKE '%".$_GET["gtxt"]."%'";
+	if(isset($_GET["gtxt"]) && mysql_real_escape_string($_GET["gtxt"])!= ""){
+		$statements[2]="E.Text LIKE '%".mysql_real_escape_string($_GET["gtxt"])."%'";
 		}
-	if(isset($_GET["gauth"]) && $_GET["gauth"]!= ""){
+	if(isset($_GET["gauth"]) && mysql_real_escape_string($_GET["gauth"])!= ""){
 		$statements[3]='E.User_ID IN (SELECT ID 
 								FROM Users 
-								WHERE Name LIKE "%'.$_GET["gauth"].'%")';
+								WHERE Name LIKE "%'.mysql_real_escape_string($_GET["gauth"]).'%")';
 		}
-	if(isset($_GET["gdate"]) && $_GET["gdate"]!= ""){
-		$date=$_GET["gdate"];
+	if(isset($_GET["gdate"]) && mysql_real_escape_string($_GET["gdate"])!= ""){
+		$date=mysql_real_escape_string($_GET["gdate"]);
 		$date=str_replace("\\","",$date);
 		$statements[4]="(MONTH(E.Date) = MONTH(".$date.") AND YEAR(E.Date) = YEAR(".$date.") )";
 	}
 		
 	//check for oldest ID to get only newer entries
-	if(isset($_GET["goid"]) && $_GET["goid"]!= ""){
-		$statements[5]="E.ID < ".$_GET["goid"];
+	if(isset($_GET["goid"]) && mysql_real_escape_string($_GET["goid"])!= ""){
+		$statements[5]="E.ID < ".mysql_real_escape_string($_GET["goid"]);
 		}	
 	$count = 0;
 	$or=0;
@@ -87,13 +87,13 @@ while($row = mysql_fetch_array($result))
 	//open entriediv
   echo('<div class="entry">');
   //Topic output
-  echo('<div id="c_top"> <b class="topic">'.$row['Title'].'</b><hr /></div>');
+  echo('<div id="c_top"> <b class="topic">'.htmlspecialchars($row['Title']).'</b><hr /></div>');
   //Text output
-  echo(' <div id="c_center">'.$row['Text'].'</div>');
+  echo(' <div id="c_center">'.htmlspecialchars($row['Text']).'</div>');
   //Footer output
   echo('<div id="c_bottom">
 	  <hr />
-	  <div class="author">'.$row['User_Name'].'</div>
+	  <div class="author">'.htmlspecialchars($row['User_Name']).'</div>
 	  <div class="date">'.$row['Date'].'</div>
 	  <div class="comment">
 	  	<a href="javascript:loadcomments('.$row['ID'].',0);" id="showcom_'.$row['ID'].'" class="com_load">show comments</a>
