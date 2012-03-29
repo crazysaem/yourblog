@@ -1,20 +1,22 @@
+<?php session_start(); ?>
 <?php
-//connects to the server and selects the yourblog database
-include("connect.php");
 $lvl=4;
-if(isset($_GET['gid'])){
-$checkPermission="SELECT UL.ID 
-					FROM Users U,User_Levels UL
-					WHERE U.User_Level_ID = UL.ID
-					AND U.ID=".$_GET['gid']."";
-$result = mysql_query($checkPermission,$con);
-$Level=mysql_fetch_array($result);
-$lvl=$Level['ID'];
-}
+if(isset($_SESSION['Level']))
+	$lvl=$_SESSION['Level'];
 if($lvl==0){
+	include("connect.php");
 	//creates the SELECT statement
-	$statement="SELECT U.Name,U.ID
-				FROM Users U WHERE U.User_Level_ID > 0";
+	$statement="SELECT U.Name,
+						U.ID,
+						User_Level_ID AS Ulvl,
+						U.Password,
+						(SELECT COUNT(1) 
+							FROM Comments C
+							WHERE C.User_ID = U.ID
+							GROUP BY C.User_ID) AS ComCount 
+				FROM Users U 
+				WHERE U.User_Level_ID > 0 
+				ORDER BY Ulvl";
 	//echo($statement);
 	//queries the result from the database
 	$result = mysql_query($statement,$con);
@@ -28,14 +30,65 @@ if($lvl==0){
 	echo("<table>
 				<tr>
 					<th>Username</th>
-					<th>Action</th>
+					<th>Level</th>
+					<th>Status</th>
+					<th colspan='4'>Actions</th>
 				</tr>");
 	while($row = mysql_fetch_array($result)){
 		echo('<tr>
 				<td>'.$row['Name'].'</td>
-				<td><button id="rmv_'.$row['ID'].'" >remove</button></td>
+				<td>');
+				$mk="";
+				$mkid="";
+				$is="";
+				if($row['Ulvl']==1){
+					$mk="User";
+					$mkid=2;
+					$is="Author";
+				}
+				else{
+					$is="User";
+					$mk="Author";
+					$mkid=1;
+				}
+				echo($is);
+				echo('</td>
+					<td>');
+				
+				if($row['Password']=="")
+					echo("deaktivated");
+				else
+					echo("active");
+				
+				echo('</td><td>
+					<button id="mk_'.$row['ID'].'" >make '.$mk.'</button>
+				</td>
+				<td>');
+					if($row['ComCount']>0)
+						echo('<button id="rmvcom_'.$row['ID'].'" >remove comments</button>');
+					else
+						echo('0 Comments');
+				echo('</td>
+				<td>');
+					if($row['Password']=="")
+						echo('<button id="ac_'.$row['ID'].'" >aktivate</button>');
+					else
+						echo('<button id="deac_'.$row['ID'].'" >deaktivate</button>');						
+				echo('</td>
+				<td>
+					<button id="rmv_'.$row['ID'].'" >remove</button>
+				</td>
 			</tr>');
-		echo('<script type="text/javascript"">$("#rmv_'.$row['ID'].'").button().click(function(){removeUser('.$row['ID'].');});</script>');
+		echo('<script type="text/javascript"">
+				$("#rmv_'.$row['ID'].'").button().click(function(){removeUser('.$row['ID'].');});
+				$("#rmvcom_'.$row['ID'].'").button().click(function(){removeUserComments('.$row['ID'].');});
+				$("#mk_'.$row['ID'].'").button().click(function(){changeULevel('.$row['ID'].','.$mkid.');});
+			');
+		if($row['Password']=="")
+			echo('$("#ac_'.$row['ID'].'").button().click(function(){activateUser('.$row['ID'].');});');
+		else
+			echo('$("#deac_'.$row['ID'].'").button().click(function(){deactivateUser('.$row['ID'].');});');
+		echo('</script>');
 	}
 
 	echo('</table></div>
@@ -43,10 +96,9 @@ if($lvl==0){
     	<hr />
     </div>
 </div>');
+mysql_close($con);
 }
 else{
 echo "NULL";	
 }
-//close database connection
-mysql_close($con);
 ?>

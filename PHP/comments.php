@@ -47,8 +47,7 @@ echo('
   Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
     "recap",
     {
-      theme: "red",
-      callback: Recaptcha.focus_response_field
+      theme: "blackglass"
     }
   );
   </script>
