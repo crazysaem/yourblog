@@ -27,8 +27,10 @@ function loadadmin(){
 	$.get('PHP/getsession.php', function(data) {
 		if(data!="NULL" && data!=""){
 			$.get('PHP/admin.php?gid='+data, function(data) {
-				$('#content').html(data); 
-				cur_site="admin";
+				if(data!="NULL" && data!=""){
+					$('#content').html(data); 
+					cur_site="admin";
+				}
 			;});
 	}});
 }

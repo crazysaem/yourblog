@@ -44,8 +44,9 @@ if($lvl==0){
     </div>
 </div>');
 }
+else{
+echo "NULL";	
+}
 //close database connection
 mysql_close($con);
 ?>
-
-
