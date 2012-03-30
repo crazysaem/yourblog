@@ -25,7 +25,6 @@ function submitentrie(){
 			txt=txt.replace(/[&]/g,"%26");
 			title=title.replace(/[&]/g,"%26");
 			var params = "gtxt="+txt+"&gtitle="+title+"";
-			alert(params);
 			var url = "PHP/submitentrie.php";
 			var http = new XMLHttpRequest();
 			http.open("POST", url, true);
