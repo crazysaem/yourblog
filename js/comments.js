@@ -52,7 +52,10 @@ function submitcomment($id){
 		http.onreadystatechange = function() {//Call a function when the state changes.
 			if(http.readyState == 4 && http.status == 200) {
 				com_submitting = false;
-				loadcomments($id,1);
+				if(http.responseText=="inserted")
+					loadcomments($id,1);
+				else
+					alert(http.responseText);
 			}
 		};
 		http.send(params);

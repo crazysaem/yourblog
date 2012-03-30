@@ -25,7 +25,7 @@ if($lvl<=2){
 		echo "inserted";		
 	}
 	else{
-		echo ("empty comment");	
+		echo ("error");	
 	}
 }
 else{
