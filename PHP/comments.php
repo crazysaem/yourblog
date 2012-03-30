@@ -1,4 +1,5 @@
 <?php
+include("escape.php");
 include("connect.php");
 //creates the SELECT statement
 $Cstatement="SELECT C.ID,
@@ -18,7 +19,7 @@ while($row = mysql_fetch_array($comresult))
   //Topic output
   echo('<div id="com_top"> <b class="topic">Comment '.$c++.' </b><hr /></div>');
   //Text output
-  echo(' <div id="com_center">'.htmlspecialchars($row['Comment']).'</div>');
+  echo(' <div id="com_center">'.escapebadTags($row['Comment']).'</div>');
   //Footer output
   echo('<div id="com_bottom">
 	  <hr />
@@ -36,7 +37,9 @@ echo('
 <div class="commentdiv">
 <div id="com_top"> <b class="topic">Write Comment </b><hr /></div>
 <div id="com_center">
-<textarea id="write_com'.htmlspecialchars($_GET["gid"]).'" name="write_com" cols="70" rows="7"></textarea><br/>
+<div id="myNicPanel" style="width: 614px; color:#000;"></div>
+<div id="write_com'.htmlspecialchars($_GET["gid"]).'" style="color:black; font-size: 16px; background-color: #FFF; padding: 3px; width: 610px; height:150px;">
+</div>
 <div id="recap"></div>
 <button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button>
 </div>
@@ -51,6 +54,12 @@ echo('
 <script type="text/javascript">
    $("#submit_com'.htmlspecialchars($_GET["gid"]).'").button().click(function(){submitcomm('.htmlspecialchars($_GET["gid"]).')});
 </script>
+<script type="text/javascript" src="js/nicEdit.js"></script> 
+<script type="text/javascript">
+	var myNicEditor = new nicEditor();
+	myNicEditor.setPanel("myNicPanel");
+	myNicEditor.addInstance("write_com'.htmlspecialchars($_GET["gid"]).'");
+	</script>
 <script type="text/javascript">
   Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
     "recap",

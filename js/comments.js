@@ -35,7 +35,9 @@ function submitcomm(id){
 }
 
 function submitcomment($id){
-	var params = "gtxt="+$('#write_com'+$id).val()+"&geid="+$id;
+	var txt=$('#write_com'+$id).html();
+	txt=txt.replace(/[&]/g,"%26");
+	var params = "gtxt="+txt+"&geid="+$id;
 	var url = "PHP/submitcomment.php";
 	var http = new XMLHttpRequest();
 	http.open("POST", url, true);
@@ -47,7 +49,6 @@ function submitcomment($id){
 	
 	http.onreadystatechange = function() {//Call a function when the state changes.
 		if(http.readyState == 4 && http.status == 200) {
-			$('#write_com'+$id).val("");
 			loadcomments($id,1);
 		}
 	};

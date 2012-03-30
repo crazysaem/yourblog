@@ -6,7 +6,7 @@
   <br /> Text:<br />
  <!--<textarea id="textwrite" style name="Nentry" cols="70" rows="14"></textarea><br /><br />-->
 <div id="myNicPanel" style="width: 650px; color:#000;"></div>
-<div id="textwrite" style="font-size: 16px; background-color: #ccc; padding: 3px; width: 646px; height:250px;">
+<div id="textwrite" style="font-size: 16px; color:black; background-color: #FFF; padding: 3px; width: 646px; height:250px;">
 </div>
 <input id="Sentry" type="button" value="Submit entry" /> 
  
@@ -24,7 +24,7 @@
 	var myNicEditor = new nicEditor();
 	myNicEditor.setPanel('myNicPanel');
 	myNicEditor.addInstance('textwrite');
-	
+
 	$('#Sentry').button().on("click.submit",function(){
 		submitentrie();
 		});
