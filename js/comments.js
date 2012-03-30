@@ -33,24 +33,28 @@ function submitcomm(id){
 //		alert("Please reenter Captcha");
 //	}	
 }
-
+com_submitting = false;
 function submitcomment($id){
-	var txt=$('#write_com'+$id).html();
-	txt=txt.replace(/[&]/g,"%26");
-	var params = "gtxt="+txt+"&geid="+$id;
-	var url = "PHP/submitcomment.php";
-	var http = new XMLHttpRequest();
-	http.open("POST", url, true);
-	
-	//Send the proper header information along with the request
-	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	http.setRequestHeader("Content-length", params.length);
-	http.setRequestHeader("Connection", "close");
-	
-	http.onreadystatechange = function() {//Call a function when the state changes.
-		if(http.readyState == 4 && http.status == 200) {
-			loadcomments($id,1);
-		}
-	};
-	http.send(params);
+	if(!com_submitting){
+		com_submitting=true;
+		var txt=$('#write_com'+$id).html();
+		txt=txt.replace(/[&]/g,"%26");
+		var params = "gtxt="+txt+"&geid="+$id;
+		var url = "PHP/submitcomment.php";
+		var http = new XMLHttpRequest();
+		http.open("POST", url, true);
+		
+		//Send the proper header information along with the request
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		http.setRequestHeader("Content-length", params.length);
+		http.setRequestHeader("Connection", "close");
+		
+		http.onreadystatechange = function() {//Call a function when the state changes.
+			if(http.readyState == 4 && http.status == 200) {
+				com_submitting = false;
+				loadcomments($id,1);
+			}
+		};
+		http.send(params);
+	}
 }
