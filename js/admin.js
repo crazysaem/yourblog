@@ -31,7 +31,6 @@ function changeULevel(uid,mkid){
 function sendadminpost(params,url){
 	var http = new XMLHttpRequest();
 	http.open("POST", url, true);
-	
 	//Send the proper header information along with the request
 	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	http.setRequestHeader("Content-length", params.length);
@@ -42,17 +41,14 @@ function sendadminpost(params,url){
 			loadadmin();
 		}
 	};
-	
 	http.send(params);	
-}	
+}
+	
 function loadadmin(){
-	$.get('PHP/getsession.php', function(data) {
+	$.get('PHP/admin.php', function(data) {
 		if(data!="NULL" && data!=""){
-			$.get('PHP/admin.php?gid='+data, function(data) {
-				if(data!="NULL" && data!=""){
-					$('#content').html(data); 
-					cur_site="admin";
-				}
-			;});
-	}});
+			cur_site="admin";
+			$('#content').html(data); 					
+		}
+	;});
 }

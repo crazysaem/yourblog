@@ -1,25 +1,20 @@
 <?php session_start(); ?>
 <?php
-//connects to the server and selects the yourblog database
-include("connect.php");
-//creates the SELECT statement
 $lvl=4;
 if(isset($_SESSION['Level']))
 	$lvl=$_SESSION['Level'];
 if($lvl==0){
-	echo "1";
+	include("connect.php");
+	//get the current password of the user
 	$statement="SELECT Password FROM Users WHERE ID = ".$_POST['pid'];
 	$result = mysql_query($statement,$con);
 	$res = mysql_fetch_array($result);
-	echo "2";
+	//...and save it to the user_save table
 	$statement="INSERT INTO user_save (User_ID,Password) VALUES(".$_POST['pid'].",'".$res['Password']."')";
 	$result = mysql_query($statement,$con);
-	echo "3";
+	//remove the password from the User table
 	$statement="UPDATE Users SET Password = '' WHERE ID = ".$_POST['pid'];
 	$result = mysql_query($statement,$con);
-	echo "4";
-	//close database connection
+	mysql_close($con);
 }
-mysql_close($con);
-//<a href="PHP/comments.php?gid='.$row['ID'].'">comments</a>
 ?>

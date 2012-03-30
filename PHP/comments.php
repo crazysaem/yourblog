@@ -1,6 +1,4 @@
 <?php
-
-//connects to the server and selects the yourblog database
 include("connect.php");
 //creates the SELECT statement
 $Cstatement="SELECT C.ID,
@@ -10,12 +8,9 @@ $Cstatement="SELECT C.ID,
 			FROM Comments C
 			Left Join Users U ON U.ID = C.User_ID
 			WHERE Entry_ID =".mysql_real_escape_string($_GET["gid"])." ORDER BY ID ASC";
-
 $comresult = mysql_query($Cstatement,$con);
-
-
 //output all results
-$c=1;
+$c=1;  //count the comments
 while($row = mysql_fetch_array($comresult))
   {
 	//open entriediv
@@ -43,6 +38,19 @@ echo('
 <div id="com_center">
 <textarea id="write_com'.htmlspecialchars($_GET["gid"]).'" name="write_com" cols="70" rows="7"></textarea><br/>
 <div id="recap"></div>
+<button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button>
+</div>
+<div id="com_bottom">
+	  <hr />
+	  <div class="author"></div>
+	  <div class="date"></div>
+	  <div class="comment">
+	  <a href="javascript:loadcomments('.htmlspecialchars($_GET["gid"]).',0);" id="showcom_'.htmlspecialchars($_GET["gid"]).'" class="com_load" >hide comments</a></div>	  
+</div>
+</div>
+<script type="text/javascript">
+   $("#submit_com'.htmlspecialchars($_GET["gid"]).'").button().click(function(){submitcomm('.htmlspecialchars($_GET["gid"]).')});
+</script>
 <script type="text/javascript">
   Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
     "recap",
@@ -50,21 +58,5 @@ echo('
       theme: "blackglass"
     }
   );
-  </script>
-<button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button>
-</div>
-<div id="com_bottom">
-	  <hr />
-	  <div class="author"></div>
-	  <div class="date"></div>
-	  <div class="comment" >
-	  <a href="javascript:loadcomments('.htmlspecialchars($_GET["gid"]).',0);" id="showcom_'.htmlspecialchars($_GET["gid"]).'" class="com_load" >hide comments</a></div>	  
-</div>
-</div>
-
-<script type="text/javascript">
-   $("#submit_com'.htmlspecialchars($_GET["gid"]).'").button().click(function(){submitcomm('.htmlspecialchars($_GET["gid"]).')});
-</script> 
-
-');
+  </script>');
 ?>

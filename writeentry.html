@@ -4,7 +4,14 @@
   <div id="c_center">
   Title:<br /><input id="titlewrite" name="Ntitle" type="text" value="" size="50" maxlength="100" />
   <br /> Text:<br />
- <textarea id="textwrite" name="Nentry" cols="70" rows="14"></textarea><br /><br /><input id="Sentry" type="button" value="Submit entry" /></div>
+ <!--<textarea id="textwrite" style name="Nentry" cols="70" rows="14"></textarea><br /><br />-->
+<div id="myNicPanel" style="width: 650px; color:#000;"></div>
+<div id="textwrite" style="font-size: 16px; background-color: #ccc; padding: 3px; width: 646px; height:250px;">
+</div>
+<input id="Sentry" type="button" value="Submit entry" /> 
+ 
+ </div>
+  
   <div id="c_bottom">
     
 	  <hr />
@@ -12,9 +19,15 @@
   </div>
    </div>
 
+<script type="text/javascript" src="js/nicEdit.js"></script> 
 <script type="text/javascript">
-$('#Sentry').button().on("click.submit",function(){
-											submitentrie();
-										});	
-sending_entry=false;
-</script>  
+	var myNicEditor = new nicEditor();
+	myNicEditor.setPanel('myNicPanel');
+	myNicEditor.addInstance('textwrite');
+	
+	$('#Sentry').button().on("click.submit",function(){
+		submitentrie();
+		});
+	
+	sending_entry=false;
+</script>

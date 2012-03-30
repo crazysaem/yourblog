@@ -32,16 +32,16 @@ $(function() {
 		});	
 	$('#button-home').button().click(function(){
 		if(cur_site!="home"){
-			loadnewentries();
 			cur_site="home";
+			loadnewentries();
 		}
 	});
 	$('#button-about').button();
 	$('#button-wentry').button().click(function(){
 		if(cur_site!="wentry"){
 			$.get('writeentry.html', function(data) {
-				$('#content').html(data);
 				cur_site="wentry";
+				$('#content').html(data);
 			});
 		}
 	});
@@ -51,8 +51,8 @@ $(function() {
 	$("#button-register").button().click(function(){
 		if(cur_site!="register"){
 			$.get('register.html', function(data) {
-				$('#content').html(data);
 				cur_site="register";
+				$('#content').html(data);
 				});
 			}
 		});

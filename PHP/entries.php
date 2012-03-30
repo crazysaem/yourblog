@@ -1,5 +1,5 @@
-
 <?php
+include("escape.php");
 function getwhere(){
 	$statements = array ("","","","","","");
 	if(isset($_GET["gid"]) && mysql_real_escape_string($_GET["gid"])!= ""){
@@ -21,7 +21,6 @@ function getwhere(){
 		$date=str_replace("\\","",$date);
 		$statements[4]="(MONTH(E.Date) = MONTH(".$date.") AND YEAR(E.Date) = YEAR(".$date.") )";
 	}
-		
 	//check for oldest ID to get only newer entries
 	if(isset($_GET["goid"]) && mysql_real_escape_string($_GET["goid"])!= ""){
 		$statements[5]="E.ID < ".mysql_real_escape_string($_GET["goid"]);
@@ -62,8 +61,6 @@ function getwhere(){
 	}
 	return $res;
 }
-
-//connects to the server and selects the yourblog database
 include("connect.php");
 //creates the SELECT statement
 $statement="SELECT E.ID,
@@ -75,10 +72,8 @@ $statement="SELECT E.ID,
 			LEFT JOIN Users U ON E.User_ID = U.ID ".getwhere()."
 			ORDER BY E.Date DESC,E.ID DESC
 			LIMIT 0,5";
-//echo($statement);
 //queries the result from the database
 $result = mysql_query($statement,$con);
-
 //output all results
 $oldestID=0;
 $count=0;
@@ -89,7 +84,7 @@ while($row = mysql_fetch_array($result))
   //Topic output
   echo('<div id="c_top"> <b class="topic">'.htmlspecialchars($row['Title']).'</b><hr /></div>');
   //Text output
-  echo(' <div id="c_center">'.htmlspecialchars($row['Text']).'</div>');
+  echo(' <div id="c_center">'.escapebadTags($row['Text']).'</div>');
   //Footer output
   echo('<div id="c_bottom">
 	  <hr />
@@ -116,9 +111,5 @@ while($row = mysql_fetch_array($result))
 			cur_oldestID=-1;			
  		</script>');
 	  }
-//close database connection
 mysql_close($con);
-//<a href="PHP/comments.php?gid='.$row['ID'].'">comments</a>
 ?>
-
-

@@ -17,11 +17,8 @@ if($lvl==0){
 				FROM Users U 
 				WHERE U.User_Level_ID > 0 
 				ORDER BY Ulvl";
-	//echo($statement);
-	//queries the result from the database
 	$result = mysql_query($statement,$con);
-	
-	//output all results
+	//output result
 	echo('<div class="entry">
     <div id="c_top" > <b class="topic">Administration</b>
     	<hr />
@@ -36,7 +33,7 @@ if($lvl==0){
 				</tr>");
 	while($row = mysql_fetch_array($result)){
 		echo('<tr>
-				<td>'.$row['Name'].'</td>
+				<td>'.htmlspecialchars($row['Name']).'</td>
 				<td>');
 				$mk="";
 				$mkid="";
@@ -56,7 +53,7 @@ if($lvl==0){
 					<td>');
 				
 				if($row['Password']=="")
-					echo("deaktivated");
+					echo("deactivated");
 				else
 					echo("active");
 				
@@ -73,7 +70,7 @@ if($lvl==0){
 					if($row['Password']=="")
 						echo('<button id="ac_'.$row['ID'].'" >aktivate</button>');
 					else
-						echo('<button id="deac_'.$row['ID'].'" >deaktivate</button>');						
+						echo('<button id="deac_'.$row['ID'].'" >deactivate</button>');						
 				echo('</td>
 				<td>
 					<button id="rmv_'.$row['ID'].'" >remove</button>
