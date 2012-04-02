@@ -3,7 +3,6 @@
 $lvl=4;
 if(isset($_SESSION['Level']))
 	$lvl=$_SESSION['Level'];
-	echo $lvl;
 if($lvl<=2){
 	$eid="";
 	if(isset($_POST["geid"])){
