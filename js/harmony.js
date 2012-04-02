@@ -1,16 +1,8 @@
-
 (function(window,document,undefined){
-
-
-
-
-
-
     function ribbon( context )
     {
     	this.init( context );
     }
-
     ribbon.prototype =
     {
     	context: null,
@@ -164,8 +156,8 @@ window.harmony = function init()
 	
 	document.addEventListener('mouseout', onCanvasMouseUp, false);
 	
-	canvas.addEventListener('mousemove', onCanvasMouseMove, false);
-	canvas.addEventListener('touchstart', onCanvasTouchStart, false);
+	document.body.addEventListener('mousemove', onCanvasMouseMove, false);
+	document.body.addEventListener('touchstart', onCanvasTouchStart, false);
 	
 	onWindowResize(null);
 }
