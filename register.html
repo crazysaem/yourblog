@@ -1,3 +1,12 @@
+
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			$(".ajax-fc-container").captcha({
+				text: "Verify that you are a human,<br />drag <span>scissors</span> into the circle."
+			});
+		});
+
+	</script>
 <div class="entry">
     <div id="c_top" > 
     	<b class="topic">
@@ -28,8 +37,11 @@
             <font class="errorl" id="repw_error">
             </font>
             <br />
-            <div id="recap">
-            </div>
+            <!-- Begin of captcha -->	
+            <div class="ajax-fc-container">You must enable javascript to see captcha here!</div>
+            <!-- End of captcha -->
+            <font class="errorl" id="captch_error">
+            </font>
             <br />
             <input id="bregister" type="button" />
         </p> 
@@ -38,24 +50,12 @@
     	<hr />
     </div>
 </div>
-<!--<script type="text/javascript">
-Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
-"recap",
-	{
-	  theme: "blackglass"
-		//callback : Recaptcha.focus_response_field
-	}
-);
-</script>-->
+
+
+    
 <script type="text/javascript">
 $('#bregister').button().on("click.submit",function(){
-		//if(checkCap()){
-			register();
-		//}
-		//else{
-			//Recaptcha.reload();
-			//alert("Please reenter Captcha");
-		//}
+    register();
 	}	
 );
 $('#bregister').button( "option", "label", "Submit" );

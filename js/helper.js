@@ -16,6 +16,7 @@ cur_search_id="";
 cur_searchString="";
 cur_dateString="";
 is_archive_search=false;
+solved=false;
 //used to check which site is currently loaded
 cur_site="home";
 //infinite scrolling...

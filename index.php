@@ -6,9 +6,9 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/commentstyle.css" rel="stylesheet" type="text/css" />
 <link type="text/css" href="css/dot-luv/jquery-ui-1.8.18.custom.css" rel="stylesheet">	
+<link href="captcha/captcha.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<!--<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>-->
 <script type="text/javascript" src="js/CollapsibleLists.compressed.js"></script>
 <script type="text/javascript" src="js/helper.js"></script>
 <?php if(isset($_GET["id"])){echo('<script>cur_search_id="gid='.str_replace("\"","",$_GET["id"]).'";cur_site="detail";</script> ');}?>  
@@ -64,5 +64,7 @@
 var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 if(!is_chrome)
 harmony();</script>
+<script type="text/javascript" src="captcha/jquery.captcha.js"></script>
+
 </body>
 </html>

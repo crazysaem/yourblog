@@ -40,7 +40,9 @@ echo('
 <div id="myNicPanel'.htmlspecialchars($_GET["gid"]).'" style="width: 614px; color:#000;"></div>
 <div id="write_com'.htmlspecialchars($_GET["gid"]).'" style="color:black; font-size: 16px; background-color: #FFF; padding: 3px; width: 610px; height:150px;">
 </div>
-<div id="recap"></div>
+ <!-- Begin of captcha -->	
+            <div class="captch" id="ajax-fc-container_'.htmlspecialchars($_GET["gid"]).'">You must enable javascript to see captcha here!</div>
+            <!-- End of captcha -->
 <button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button>
 </div>
 <div id="com_bottom">

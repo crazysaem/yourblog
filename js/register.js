@@ -1,8 +1,12 @@
-
+function loadcaptcha(){
+	$(".ajax-fc-container").captcha({
+				text: "Verify that you are a human,<br />drag <span>scissors</span> into the circle."
+			});
+	}
 
 
 function register(){
-	
+		
 	 changeRegButoon();
 	//reset error fields
 	$("#pw_error").html("");
@@ -35,45 +39,60 @@ function register(){
 	}	
 		
 	if(error==0){
-		var params = "guname="+uname+"&gpassw="+pw;
-	
-				var url = "PHP/register.php";
-				var http = new XMLHttpRequest();
-				http.open("POST", url, true);
-				
-				//Send the proper header information along with the request
-				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				http.setRequestHeader("Content-length", params.length);
-				http.setRequestHeader("Connection", "close");
-				
-				http.onreadystatechange = function() {//Call a function when the state changes.
-					changeRegButoon();
-					if(http.readyState == 4 && http.status == 200) {
-						if(http.responseText=="inserted"){
-						//Recaptcha.destroy();
-						alert("You have been registered successfully!\nPlease login if you want to comment on entries.");
-						loadnewentries();
-						}
-						else if(http.responseText=="exists"){
-							alert("This name already exists.");
-							$("#regusername").val("");
-							//Recaptcha.reload();		
-						}
-						else{	
-							alert("We are sorry. An error occured, please try again later.");
-							$("#regusername").val("");
-							$("#regpword").val("");
-							$("#regrepass").val("");	
-							//Recaptcha.reload();
-						}
-					}
-				};
-				http.send(params);
+		if(!solved){
+			changeRegButoon();
+			solved=false;
+			loadcaptcha();
+			$('#captch_error').html("Captcha was not solved correctly");
+			$("#regpword").val("");
+			$("#regrepass").val("");
 		}
-		//else{
-//			changeRegButoon();
-//			Recaptcha.reload();			
-//			}
+		else{
+			var params = "guname="+uname+"&gpassw="+pw;
+		
+					var url = "PHP/register.php";
+					var http = new XMLHttpRequest();
+					http.open("POST", url, true);
+					
+					//Send the proper header information along with the request
+					http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					http.setRequestHeader("Content-length", params.length);
+					http.setRequestHeader("Connection", "close");
+					
+					http.onreadystatechange = function() {//Call a function when the state changes.
+						changeRegButoon();
+						if(http.readyState == 4 && http.status == 200) {
+							if(http.responseText=="inserted"){
+							//Recaptcha.destroy();
+							alert("You have been registered successfully!\nPlease login if you want to comment on entries.");
+							cur_site="home";
+							solved=false;
+							loadnewentries();
+							}
+							else if(http.responseText=="exists"){
+								alert("This name already exists.");
+								$("#regusername").val("");
+								solved=false;
+								loadcaptcha();		
+							}
+							else{	
+								alert("We are sorry. An error occured, please try again later.");
+								$("#regusername").val("");
+								$("#regpword").val("");
+								$("#regrepass").val("");	
+								solved=false;
+								loadcaptcha();
+							}
+						}
+					};
+					http.send(params);
+			}
+	}
+	else{
+		changeRegButoon();
+		solved=false;
+	    loadcaptcha();		
+	}
 }
 
 function changeRegButoon(){
@@ -86,15 +105,7 @@ function changeRegButoon(){
 		$('#bregister').button( "option", "label", "Submit" );
 		$('#bregister').button().off("click.process");
 		$('#bregister').button().on("click.submit",function(){
-		   if(checkCap()){
-			  register();
-		   }
-		   else{
-			   Recaptcha.reload();
-			   alert("Please reenter Captcha");
-			   }
-		   }	
-		);	
+		   	  register();});
 	}
 }
 
