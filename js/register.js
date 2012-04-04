@@ -50,30 +50,30 @@ function register(){
 					changeRegButoon();
 					if(http.readyState == 4 && http.status == 200) {
 						if(http.responseText=="inserted"){
-						Recaptcha.destroy();
+						//Recaptcha.destroy();
 						alert("You have been registered successfully!\nPlease login if you want to comment on entries.");
 						loadnewentries();
 						}
 						else if(http.responseText=="exists"){
 							alert("This name already exists.");
 							$("#regusername").val("");
-							Recaptcha.reload();		
+							//Recaptcha.reload();		
 						}
 						else{	
 							alert("We are sorry. An error occured, please try again later.");
 							$("#regusername").val("");
 							$("#regpword").val("");
 							$("#regrepass").val("");	
-							Recaptcha.reload();
+							//Recaptcha.reload();
 						}
 					}
 				};
 				http.send(params);
 		}
-		else{
-			changeRegButoon();
-			Recaptcha.reload();			
-			}
+		//else{
+//			changeRegButoon();
+//			Recaptcha.reload();			
+//			}
 }
 
 function changeRegButoon(){

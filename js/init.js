@@ -32,8 +32,8 @@ $(function() {
 		});	
 	$('#button-home').button().click(function(){
 		if(cur_site!="home"){
-			cur_site="home";
-			loadnewentries();
+			cur_search_id="";
+			window.location="index.php?";
 		}
 	});
 	$('#button-about').button();

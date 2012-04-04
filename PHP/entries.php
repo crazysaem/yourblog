@@ -3,7 +3,7 @@ include("escape.php");
 function getwhere(){
 	$statements = array ("","","","","","");
 	if(isset($_GET["gid"]) && mysql_real_escape_string($_GET["gid"])!= ""){
-		$statements[0]="E.ID = ".mysql_real_escape_string($_GET["gid"]);
+		$statements[3]="E.ID = ".mysql_real_escape_string($_GET["gid"]);
 		}
 	if(isset($_GET["gtitle"]) && mysql_real_escape_string($_GET["gtitle"])!= ""){
 		$statements[1]="E.Title LIKE '%".mysql_real_escape_string($_GET["gtitle"])."%'";
@@ -12,7 +12,7 @@ function getwhere(){
 		$statements[2]="E.Text LIKE '%".mysql_real_escape_string($_GET["gtxt"])."%'";
 		}
 	if(isset($_GET["gauth"]) && mysql_real_escape_string($_GET["gauth"])!= ""){
-		$statements[3]='E.User_ID IN (SELECT ID 
+		$statements[0]='E.User_ID IN (SELECT ID 
 								FROM Users 
 								WHERE Name LIKE "%'.mysql_real_escape_string($_GET["gauth"]).'%")';
 		}
@@ -29,7 +29,7 @@ function getwhere(){
 	$or=0;
 	$res="";
 	//create THE OR statements
-	while($count<=3){
+	while($count<=2){
 		if($statements[$count]!=""){
 			if($or>0){
 				$res.='OR '.$statements[$count];
@@ -44,7 +44,7 @@ function getwhere(){
 	}
 	if($or>0)
 		$res.=")";
-	$count=4;
+	$count=3;
 	//DO THE AND PART
 	while($count<=5){
 		if($statements[$count]!=""){
@@ -81,8 +81,8 @@ while($row = mysql_fetch_array($result))
   {
 	//open entriediv
   echo('<div class="entry">');
-  //Topic output
-  echo('<div id="c_top"> <b class="topic">'.htmlspecialchars($row['Title']).'</b><hr /></div>');
+  //Topic output		
+  echo('<div id="c_top"> <b class="topic"><a style="color:white;" href="javascript:loaddetail('.$row['ID'].');">'.htmlspecialchars($row['Title']).'</a></b><hr /></div>');
   //Text output
   echo(' <div id="c_center">'.escapebadTags($row['Text']).'</div>');
   //Footer output

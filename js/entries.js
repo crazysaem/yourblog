@@ -3,14 +3,13 @@
 loadnewentries();
 
 function loadnewentries(){
-$.get('PHP/entries.php?'+cur_searchString+'&'+cur_dateString, function(data) {
-		$('#content').html(data); 
-		cur_site="home";
+$.get('PHP/entries.php?'+cur_searchString+'&'+cur_dateString+'&'+cur_search_id, function(data) {
+		$('#content').html(data); 		
 	;});
 }
 
 function appendentriews(){
-$.get('PHP/entries.php?goid='+cur_oldestID+'&'+cur_searchString+'&'+cur_dateString, function(data) {
+$.get('PHP/entries.php?goid='+cur_oldestID+'&'+cur_searchString+'&'+cur_dateString+'&'+cur_search_id, function(data) {
 		$('#content').append(data); 
 		alreadyloading=false;
 	;});
@@ -54,3 +53,8 @@ function submitentrie(){
 		alert("You cannot submit an empty text!");
 	}
 }
+
+function loaddetail(id){
+	cur_site="detail";
+	window.location="index.php?id="+id;
+	}

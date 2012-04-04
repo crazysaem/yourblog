@@ -12,6 +12,7 @@ function checkCap(){
 //used to identify the oldest loaded element
 cur_oldestID=0;
 //used for supporting search within the database
+cur_search_id="";
 cur_searchString="";
 cur_dateString="";
 is_archive_search=false;

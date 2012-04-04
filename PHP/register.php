@@ -1,14 +1,16 @@
 <?php
+include("connect.php"); //returns $con as connection to the yourblog database
+
 $uname="";
 if(isset($_POST["guname"])){
 	$uname=mysql_real_escape_string($_POST["guname"]);
 }
-$pass="";
+$pword="";
 if(isset($_POST["gpassw"])){
-	$pass=md5($_POST["gpassw"]);
+	$pword=md5($_POST["gpassw"]);
 }
-include("connect.php"); //returns $con as connection to the yourblog database
-if($uname!="" && $pass!=""){
+
+if($uname!="" && $pword!=""){
 	//check if user already exists
 	$checkExist="SELECT 'TRUE' AS Exist 
 				FROM Users Uo
@@ -25,7 +27,7 @@ if($uname!="" && $pass!=""){
 	else{
 		$statement="INSERT INTO Users 
 					(User_Level_ID,Name,Password) 
-					VALUES(2,'".$uname."','".$pass."')";
+					VALUES(2,'".$uname."','".$pword."')";
 		$result	= mysql_query($statement);
 		if($result){
 			echo "inserted";

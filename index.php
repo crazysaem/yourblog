@@ -6,7 +6,18 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/commentstyle.css" rel="stylesheet" type="text/css" />
 <link type="text/css" href="css/dot-luv/jquery-ui-1.8.18.custom.css" rel="stylesheet">	
-
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<!--<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>-->
+<script type="text/javascript" src="js/CollapsibleLists.compressed.js"></script>
+<script type="text/javascript" src="js/helper.js"></script>
+<?php if(isset($_GET["id"])){echo('<script>cur_search_id="gid='.str_replace("\"","",$_GET["id"]).'";cur_site="detail";</script> ');}?>  
+<script type="text/javascript" src="js/init.js"></script>  
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/entries.js"></script>
+<script type="text/javascript" src="js/comments.js"></script>
+<script type="text/javascript" src="js/register.js"></script> 
+<script type="text/javascript" src="js/admin.js"></script>
 
  
 <style>
@@ -18,8 +29,7 @@
 </head>
 
 <body>
-<script type="text/javascript" src="js/harmony.js"></script>
-<script>harmony()</script>
+
 <div id="header">
 <img src="pics//Logo.png" alt="Logo" width="358" height="105" align="left" />
 </div>
@@ -48,17 +58,11 @@
   <div id="s_bottom"></div>
 </div>
 </div>
-<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
-<script type="text/javascript" src="js/CollapsibleLists.compressed.js"></script>
-<script type="text/javascript" src="js/helper.js"></script>  
-<script type="text/javascript" src="js/init.js"></script>  
-<script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/entries.js"></script>
-<script type="text/javascript" src="js/comments.js"></script>
-<script type="text/javascript" src="js/register.js"></script> 
-<script type="text/javascript" src="js/admin.js"></script>
 
+<script type="text/javascript" src="js/harmony.js"></script>
+<script>
+var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+if(!is_chrome)
+harmony();</script>
 </body>
 </html>

@@ -1,26 +1,30 @@
 function loadcomments(id,reload){
-	if(reload==1){
+
+	if(reload==1 || $('#com_'+id).html()==""){
 		$.get('PHP/comments.php?gid='+id+'', 
 			function(data) {
-				$('.comments').html("");
+				$('.comments').hide();
 				$('.com_load').text("show comments");
 				$('#showcom_'+id).text("hide comments");
-				$('#com_'+id).html(data); 				
+				$('#com_'+id).show();
+				$('#com_'+id).focus();
+				$('#com_'+id).html(data);
 			}
 		);
 	}
-	if($('#com_'+id).html()!=""){
-		$('#com_'+id).html("");
-		$('#showcom_'+id).text("show comments");
-	}
 	else{
-		$.get('PHP/comments.php?gid='+id+'', 
-			function(data) {
-			$('.comments').html("");
+		//html already loaded
+		if($('#showcom_'+id).text()!="show comments"){
+			$('#com_'+id).hide();
+			$('#showcom_'+id).text("show comments");
+		}
+		else{
+			$('.comments').hide();
 			$('.com_load').text("show comments");
 			$('#showcom_'+id).text("hide comments");
-			$('#com_'+id).html(data); 			
-		});		
+			$('#com_'+id).show();
+			$('#com_'+id).focus();
+		}
 	}
 }
 

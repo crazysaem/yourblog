@@ -37,7 +37,7 @@ echo('
 <div class="commentdiv">
 <div id="com_top"> <b class="topic">Write Comment </b><hr /></div>
 <div id="com_center">
-<div id="myNicPanel" style="width: 614px; color:#000;"></div>
+<div id="myNicPanel'.htmlspecialchars($_GET["gid"]).'" style="width: 614px; color:#000;"></div>
 <div id="write_com'.htmlspecialchars($_GET["gid"]).'" style="color:black; font-size: 16px; background-color: #FFF; padding: 3px; width: 610px; height:150px;">
 </div>
 <div id="recap"></div>
@@ -57,15 +57,16 @@ echo('
 <script type="text/javascript" src="js/nicEdit.js"></script> 
 <script type="text/javascript">
 	var myNicEditor = new nicEditor();
-	myNicEditor.setPanel("myNicPanel");
+	myNicEditor.setPanel("myNicPanel'.htmlspecialchars($_GET["gid"]).'");
 	myNicEditor.addInstance("write_com'.htmlspecialchars($_GET["gid"]).'");
 	</script>
-<script type="text/javascript">
-  Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
-    "recap",
-    {
-      theme: "blackglass"
-    }
-  );
-  </script>');
+');
+//<script type="text/javascript">
+  //Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
+    //"recap",
+  //  {
+  //    theme: "blackglass"
+   // }
+ // );
+ // </script>');
 ?>

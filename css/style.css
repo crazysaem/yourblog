@@ -19,7 +19,8 @@
 	opacity:1;*/
 	}
 			
-		
+.waiting {cursor:progress;}
+.com_load {color:white;}	
 canvas { 
 	opacity: 1; 
 	position:fixed; 
@@ -120,8 +121,7 @@ body {
 	font-size:24px;
 }
 #center {
-	position:relative;
-	top:103px;
+
 	width:965px;
 	height:0px;
 	margin-left:auto;

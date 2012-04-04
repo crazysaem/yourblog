@@ -1,88 +1,10 @@
+brushname = "ribbon";
+brushsize = 5;
+
 (function(window,document,undefined){
-    function ribbon( context )
-    {
-    	this.init( context );
-    }
-    ribbon.prototype =
-    {
-    	context: null,
-
-    	mouseX: null, mouseY: null,
-
-    	painters: null,
-
-    	interval: null,
-
-    	init: function( context )
-    	{
-    		this.context = context;
-    		this.context.lineWidth = 1;
-    		this.context.globalCompositeOperation = 'source-over';
-
-    		this.mouseX = SCREEN_WIDTH / 2;
-    		this.mouseY = SCREEN_HEIGHT / 2;
-
-    		this.painters = new Array();
-
-    		for (var i = 0; i < 50; i++)
-    		{
-    			this.painters.push({ dx: SCREEN_WIDTH / 2, dy: SCREEN_HEIGHT / 2, ax: 0, ay: 0, div: 0.1, ease: Math.random() * 0.2 + 0.6 });
-    		}
-
-    		this.isDrawing = false;
-
-    		this.interval = setInterval( bargs( function( _this ) { _this.update(); return false; }, this ), 1000/60 );
-    	},
-
-    	destroy: function()
-    	{
-    		clearInterval(this.interval);
-    	},
-
-    	strokeStart: function( mouseX, mouseY )
-    	{
-    		this.mouseX = mouseX;
-    		this.mouseY = mouseY
-
-    		this.context.strokeStyle = "rgba(" + COLOR[0] + ", " + COLOR[1] + ", " + COLOR[2] + ", 0.05 )";		
-
-    		for (var i = 0; i < this.painters.length; i++)
-    		{
-    			this.painters[i].dx = mouseX;
-    			this.painters[i].dy = mouseY;
-    		}
-
-    		this.shouldDraw = true;
-    	},
-
-    	stroke: function( mouseX, mouseY )
-    	{
-    		this.mouseX = mouseX;
-    		this.mouseY = mouseY;
-    	},
-
-    	strokeEnd: function()
-    	{
-
-    	},
-
-    	update: function()
-    	{
-    		var i;
-
-    		for (i = 0; i < this.painters.length; i++)
-    		{
-    			this.context.beginPath();
-    			this.context.moveTo(this.painters[i].dx, this.painters[i].dy);		
-
-    			this.painters[i].dx -= this.painters[i].ax = (this.painters[i].ax + (this.painters[i].dx - this.mouseX) * this.painters[i].div) * this.painters[i].ease;
-    			this.painters[i].dy -= this.painters[i].ay = (this.painters[i].ay + (this.painters[i].dy - this.mouseY) * this.painters[i].div) * this.painters[i].ease;
-    			this.context.lineTo(this.painters[i].dx, this.painters[i].dy);
-    			this.context.stroke();
-    		}
-    	}
-    }
-
+//ALL THE CLASSES FOR THE BRUSHES
+function chrome(a){this.init(a)}function sketchy(a){this.init(a)}function shaded(a){this.init(a)}function fur(a){this.init(a)}function web(a){this.init(a)}function ribbon(a){this.init(a)}ribbon.prototype={context:null,mouseX:null,mouseY:null,painters:null,interval:null,init:function(a){this.context=a;this.context.lineWidth=brushsize;this.context.globalCompositeOperation="source-over";this.mouseX=SCREEN_WIDTH/2;this.mouseY=SCREEN_HEIGHT/2;this.painters=new Array;for(var b=0;b<50;b++){this.painters.push({dx:SCREEN_WIDTH/2,dy:SCREEN_HEIGHT/2,ax:0,ay:0,div:.1,ease:Math.random()*.2+.6})}this.isDrawing=false;this.interval=setInterval(bargs(function(a){a.update();return false},this),1e3/60)},destroy:function(){clearInterval(this.interval)},strokeStart:function(a,b){this.mouseX=a;this.mouseY=b;this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.05 )";for(var c=0;c<this.painters.length;c++){this.painters[c].dx=a;this.painters[c].dy=b}this.shouldDraw=true},stroke:function(a,b){this.mouseX=a;this.mouseY=b},strokeEnd:function(){},update:function(){var a;for(a=0;a<this.painters.length;a++){this.context.beginPath();this.context.moveTo(this.painters[a].dx,this.painters[a].dy);this.painters[a].dx-=this.painters[a].ax=(this.painters[a].ax+(this.painters[a].dx-this.mouseX)*this.painters[a].div)*this.painters[a].ease;this.painters[a].dy-=this.painters[a].ay=(this.painters[a].ay+(this.painters[a].dy-this.mouseY)*this.painters[a].div)*this.painters[a].ease;this.context.lineTo(this.painters[a].dx,this.painters[a].dy);this.context.stroke()}}};web.prototype={context:null,prevMouseX:null,prevMouseY:null,points:null,count:null,init:function(a){this.context=a;this.context.lineWidth=brushsize;this.context.globalCompositeOperation="source-over";this.points=new Array;this.count=0},destroy:function(){},strokeStart:function(a,b){this.prevMouseX=a;this.prevMouseY=b},stroke:function(a,b){var c,d,e,f;this.points.push([a,b]);this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.5)";this.context.beginPath();this.context.moveTo(this.prevMouseX,this.prevMouseY);this.context.lineTo(a,b);this.context.stroke();this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.1)";for(c=0;c<this.points.length;c++){d=this.points[c][0]-this.points[this.count][0];e=this.points[c][1]-this.points[this.count][1];f=d*d+e*e;if(f<2500&&Math.random()>.9){this.context.beginPath();this.context.moveTo(this.points[this.count][0],this.points[this.count][1]);this.context.lineTo(this.points[c][0],this.points[c][1]);this.context.stroke()}}this.prevMouseX=a;this.prevMouseY=b;this.count++},strokeEnd:function(){}};fur.prototype={context:null,prevMouseX:null,prevMouseY:null,points:null,count:null,init:function(a){this.context=a;this.context.lineWidth=brushsize;this.points=new Array;this.count=0},destroy:function(){},strokeStart:function(a,b){this.prevMouseX=a;this.prevMouseY=b;this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.1)"},stroke:function(a,b){var c,d,e,f;this.points.push([a,b]);this.context.beginPath();this.context.moveTo(this.prevMouseX,this.prevMouseY);this.context.lineTo(a,b);this.context.stroke();for(c=0;c<this.points.length;c++){d=this.points[c][0]-this.points[this.count][0];e=this.points[c][1]-this.points[this.count][1];f=d*d+e*e;if(f<2e3&&Math.random()>f/2e3){this.context.beginPath();this.context.moveTo(a+d*.5,b+e*.5);this.context.lineTo(a-d*.5,b-e*.5);this.context.stroke()}}this.prevMouseX=a;this.prevMouseY=b;this.count++},strokeEnd:function(){}};shaded.prototype={context:null,prevMouseX:null,prevMouseY:null,points:null,count:null,init:function(a){this.context=a;this.context.lineWidth=brushsize;this.context.globalCompositeOperation="source-over";this.points=new Array;this.count=1},destroy:function(){},strokeStart:function(a,b){this.prevMouseX=a;this.prevMouseY=b},stroke:function(a,b){var c,d,e,f;this.points.push([a,b]);for(c=0;c<this.points.length;c++){d=this.points[c][0]-this.points[this.count][0];e=this.points[c][1]-this.points[this.count][1];f=d*d+e*e;if(f<1e3){this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", "+(1-f/1e3)*.1+" )";this.context.beginPath();this.context.moveTo(this.points[this.count][0],this.points[this.count][1]);this.context.lineTo(this.points[c][0],this.points[c][1]);this.context.stroke()}}this.prevMouseX=a;this.prevMouseY=b;this.count++},strokeEnd:function(){}};sketchy.prototype={context:null,prevMouseX:null,prevMouseY:null,points:null,count:null,init:function(a){this.context=a;this.context.lineWidth=brushsize;this.context.globalCompositeOperation="source-over";this.points=new Array;this.count=0},destroy:function(){},strokeStart:function(a,b){this.prevMouseX=a;this.prevMouseY=b},stroke:function(a,b){var c,d,e,f;this.points.push([a,b]);this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.05)";this.context.beginPath();this.context.moveTo(this.prevMouseX,this.prevMouseY);this.context.lineTo(a,b);this.context.stroke();this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.05 )";for(c=0;c<this.points.length;c++){d=this.points[c][0]-this.points[this.count][0];e=this.points[c][1]-this.points[this.count][1];f=d*d+e*e;if(f<4e3&&Math.random()>f/2e3){this.context.beginPath();this.context.moveTo(this.points[this.count][0]+d*.3,this.points[this.count][1]+e*.3);this.context.lineTo(this.points[c][0]-d*.3,this.points[c][1]-e*.3);this.context.stroke()}}this.prevMouseX=a;this.prevMouseY=b;this.count++},strokeEnd:function(){}};chrome.prototype={context:null,prevMouseX:null,prevMouseY:null,points:null,count:null,init:function(a){this.context=a;this.context.lineWidth=brushsize;if(RegExp(" AppleWebKit/").test(navigator.userAgent))this.context.globalCompositeOperation="darker";this.points=new Array;this.count=0},destroy:function(){},strokeStart:function(a,b){this.prevMouseX=a;this.prevMouseY=b},stroke:function(a,b){var c,d,e,f;this.points.push([a,b]);this.context.strokeStyle="rgba("+COLOR[0]+", "+COLOR[1]+", "+COLOR[2]+", 0.1)";this.context.beginPath();this.context.moveTo(this.prevMouseX,this.prevMouseY);this.context.lineTo(a,b);this.context.stroke();for(c=0;c<this.points.length;c++){d=this.points[c][0]-this.points[this.count][0];e=this.points[c][1]-this.points[this.count][1];f=d*d+e*e;if(f<1e3){this.context.strokeStyle="rgba("+Math.floor(Math.random()*COLOR[0])+", "+Math.floor(Math.random()*COLOR[1])+", "+Math.floor(Math.random()*COLOR[2])+", 0.1 )";this.context.beginPath();this.context.moveTo(this.points[this.count][0]+d*.2,this.points[this.count][1]+e*.2);this.context.lineTo(this.points[c][0]-d*.2,this.points[c][1]-e*.2);this.context.stroke()}}this.prevMouseX=a;this.prevMouseY=b;this.count++},strokeEnd:function(){}}
+	
     function bargs( _fn )
     {
     	var n, args = [];
@@ -90,20 +12,8 @@
     		args.push( arguments[ n ] );
     	return function () { return _fn.apply( this, args ); };
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    var i, brush, BRUSHES = ["ribbon"],
+	
+    var i, brush, BRUSHES = [brushname],
     COLOR = [255, 255, 255], BACKGROUND_COLOR = [250, 250, 250],
     SCREEN_WIDTH = window.innerWidth,
     SCREEN_HEIGHT = window.innerHeight,
@@ -111,12 +21,36 @@
     canvas, flattenCanvas, context,
     isForegroundColorSelectorVisible = false, isBackgroundColorSelectorVisible = false, isAboutVisible = false,
     isMenuMouseOver = false, shiftKeyIsDown = false, altKeyIsDown = false;
-
-    
+  
 
 
 window.harmony = function init()
 {
+	//randomly initialise the brush
+	var randomnumber=Math.floor(Math.random()*4);
+	brushsize = 5 + Math.floor(Math.random()*6);
+	switch(randomnumber)
+	{
+	case 0:
+	  	brushname = "ribbon";
+	  	break;
+	case 1:
+		brushname = "web";
+	  	break;
+	case 2:
+	  	brushname = "fur";
+	  	break;
+	//case 3:
+//		brushname = "shaded";
+//	  	break;
+	case 3:
+		brushname = "sketchy";
+		break;
+	//case 4:
+//		brushname = "chrome"
+//		break;
+	}
+	
 	var hash, palette;
 	
 	//document.body.style.backgroundColor = 'rgb(' + BACKGROUND_COLOR[0] + ', ' + BACKGROUND_COLOR[1] + ', ' + BACKGROUND_COLOR[2] + ')';
@@ -145,7 +79,7 @@ window.harmony = function init()
 
 	if (!brush)
 	{
-		brush = new ribbon(context);
+		eval('brush = new '+brushname+'(context);');
 	}
 	
 
@@ -189,7 +123,8 @@ function onWindowResize() {
            context.drawImage(savecanvas, 0, 0);
 
            /* reset the brush (sad we lose the old random setup) */
-           brush = new ribbon(context);
+           eval('brush = new '+brushname+'(context);');
+		  // brush = new ribbon(context);
        }
 
 // DOCUMENT
@@ -552,17 +487,7 @@ function cleanPopUps()
 	}
 }
 
-
-
-
-
-
-
-
 })(this,this.document);
-
-
-
 
 // this part is just the easter egg for erasure. you dont need it.
 function starryEgg(){
