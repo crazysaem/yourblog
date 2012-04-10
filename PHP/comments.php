@@ -40,7 +40,11 @@ echo('
 <div id="myNicPanel'.htmlspecialchars($_GET["gid"]).'" style="width: 614px; color:#000;"></div>
 <div id="write_com'.htmlspecialchars($_GET["gid"]).'" style="color:black; font-size: 16px; background-color: #FFF; padding: 3px; width: 610px;">
 </div>
-<div id="recap"></div><p text-align="center">
+
+
+ <!-- Begin of captcha -->	
+            <div class="captch" id="ajax-fc-container_'.htmlspecialchars($_GET["gid"]).'">You must enable javascript to see captcha here!</div>
+            <!-- End of captcha -->
 <p style="text-align:center;"><button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button></p>
 </div>
 <div id="com_bottom">
@@ -61,12 +65,4 @@ echo('
 	myNicEditor.addInstance("write_com'.htmlspecialchars($_GET["gid"]).'");
 	</script>
 ');
-//<script type="text/javascript">
-  //Recaptcha.create("6LdqcM8SAAAAAI2uWhRYsG3FNL8WSg0VruNAwbbw",
-    //"recap",
-  //  {
-  //    theme: "blackglass"
-   // }
- // );
- // </script>');
 ?>

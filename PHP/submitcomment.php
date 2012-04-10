@@ -12,7 +12,7 @@ if($lvl<=2){
 	if(isset($_POST["gtxt"])){
 		$txt=$_POST["gtxt"];
 	}
-	if($txt!=""){
+	if(trim($txt)!="" ){
 		include("connect.php");
 		//creates the Insert statement
 		$statement="INSERT INTO Comments 
