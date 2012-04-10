@@ -38,10 +38,10 @@ echo('
 <div id="com_top"> <b class="topic">Write Comment </b><hr /></div>
 <div id="com_center">
 <div id="myNicPanel'.htmlspecialchars($_GET["gid"]).'" style="width: 614px; color:#000;"></div>
-<div id="write_com'.htmlspecialchars($_GET["gid"]).'" style="color:black; font-size: 16px; background-color: #FFF; padding: 3px; width: 610px; height:150px;">
+<div id="write_com'.htmlspecialchars($_GET["gid"]).'" style="color:black; font-size: 16px; background-color: #FFF; padding: 3px; width: 610px;">
 </div>
-<div id="recap"></div>
-<button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button>
+<div id="recap"></div><p text-align="center">
+<p style="text-align:center;"><button id="submit_com'.htmlspecialchars($_GET["gid"]).'" >comment</button></p>
 </div>
 <div id="com_bottom">
 	  <hr />

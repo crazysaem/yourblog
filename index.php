@@ -36,13 +36,13 @@
 <div id="center">
 <div id="login_info">You are currently not logged in.</div>
 <div id="titlebar">
-        <!--<div id="tbutton" class="black" onclick="login();">LOGIN</div>-->
-		<button id="button-login">LOGIN</button>
-        <button id="button-home" >HOME</button>
-        <button id="button-about">ABOUT</button>
-        <button id="button-wentry">Write Entry</button>
-        <button id="button-register">Register</button>
-<button id="button-admin">Admin</button>        
+    <!--<div id="tbutton" class="black" onclick="login();">LOGIN</div>-->
+    <button id="button-login">LOGIN</button>
+    <button id="button-home" >HOME</button>
+    <button id="button-about">ABOUT</button>
+    <button id="button-wentry">Write Entry</button>
+    <button id="button-register">Register</button>
+    <button id="button-admin">Admin</button>        
 </div>
 
   <div id="content">

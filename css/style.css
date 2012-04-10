@@ -34,6 +34,7 @@ body {
 	background-attachment: fixed;
 }
 #s_top {
+	color:#FFF;
 	background-image:url(../pics/Top.png);
 	background-repeat:no-repeat;
 	width=100%;
@@ -51,7 +52,10 @@ body {
 	padding-left: 10px;
 	padding-top:1px;
 	padding-bottom:1px;
+	color:#FFF;
 }
+
+#s_center a{color:#FFF; }
 #s_bottom {
 	background-image:url(../pics/Bottom.png);
 	background-repeat:no-repeat;
@@ -71,7 +75,6 @@ body {
 	padding-bottom:1px;
 }
 #c_center {
-	display:block;
 	background-image:url(../pics/C_Center2.png);
 	background-repeat:repeat-y;
 	padding-left: 10px;

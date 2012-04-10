@@ -38,6 +38,7 @@ function submitentrie(){
 					if(http.responseText=="inserted"){
 						$('#textwrite').val("");
 						$('#titlewrite').val("");
+						cur_site="home";
 						loadnewentries();
 					}
 					else{

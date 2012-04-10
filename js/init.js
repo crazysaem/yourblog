@@ -39,7 +39,7 @@ $(function() {
 	$('#button-about').button();
 	$('#button-wentry').button().click(function(){
 		if(cur_site!="wentry"){
-			$.get('writeentry.html', function(data) {
+			$.get('PHP/write.php', function(data) {
 				cur_site="wentry";
 				$('#content').html(data);
 			});
@@ -62,7 +62,7 @@ $(function() {
 			loadadmin();
 		}
 		});
-		
+	//get the current entrie history
 	$.get('PHP/gethistory.php', function(data) {
 			$('#s_center').html(data);
 			CollapsibleLists.apply();
