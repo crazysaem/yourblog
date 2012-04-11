@@ -12,7 +12,7 @@
         Text:
         <br />
 
-        <textarea id="textwrite" cols="80" rows="20">
+        <textarea id="textwrite" cols="80" rows="25" style="">
 		<?php
         if(isset($_POST['text'])){
 			echo $_POST['text'];

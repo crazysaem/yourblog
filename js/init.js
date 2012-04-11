@@ -45,6 +45,7 @@ $(function() {
 			});
 		}
 	});
+	
 		
 	//check if there is an open Session
 	getrunningSession();
@@ -78,3 +79,4 @@ function getrunningSession(){
 		} 
 	})
 ;}
+

@@ -37,12 +37,12 @@
 <div id="login_info">You are currently not logged in.</div>
 <div id="titlebar">
     <!--<div id="tbutton" class="black" onclick="login();">LOGIN</div>-->
-    <button id="button-login">LOGIN</button>
-    <button id="button-home" >HOME</button>
-    <button id="button-about">ABOUT</button>
-    <button id="button-wentry">Write Entry</button>
-    <button id="button-register">Register</button>
-    <button id="button-admin">Admin</button>        
+    <button class="menubutton" id="button-login">LOGIN</button>
+    <button class="menubutton" id="button-home" >HOME</button>
+    <button class="menubutton" id="button-about">ABOUT</button>
+    <button class="menubutton" id="button-wentry">Write Entry</button>
+    <button class="menubutton" id="button-register">Register</button>
+    <button class="menubutton" id="button-admin">Admin</button>        
 </div>
 
   <div id="content">
@@ -67,6 +67,7 @@ harmony();</script>
 <script type="text/javascript" src="captcha/jquery.captcha.js"></script>
 <script type="text/javascript" src="tiny_mce/tiny_mce.js"></script> 
 <script type="text/javascript">
+
 function setupEditor() {
 tinyMCE.init({
         mode : "textareas",
