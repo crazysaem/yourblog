@@ -16,10 +16,11 @@ $.get('PHP/entries.php?goid='+cur_oldestID+'&'+cur_searchString+'&'+cur_dateStri
 }
 
 function submitentrie(){
-	if($('#textwrite').html() != "" && $('#titlewrite').val()!=""){
+	var text=tinyMCE.get('textwrite').getContent();
+	if(text != "" ){
 		if(sending_entry==false){
 			sending_entry=true;
-			var txt=$('#textwrite').html();
+			var txt=text;
 			var title=$('#titlewrite').val();
 			txt=txt.replace(/[&]/g,"%26");
 			title=title.replace(/[&]/g,"%26");

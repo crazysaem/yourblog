@@ -38,13 +38,15 @@ function loadcomments(id,reload){
 }
 
 function submitcomm(id){
-  if(solved && $('#write_com'+id).html() != ""){
+	var text=tinyMCE.get('write_com'+id).getContent();
+  if(solved && text != ""){
 		submitcomment(id);
    }
    else{
 		$('#ajax-fc-container_'+id).captcha({
 				text: "Verify that you are a human,<br />drag <span>scissors</span> into the circle."
 			});
+		solved=false;
 		//alert("Please reenter Captcha");
 	}	
 }
@@ -52,7 +54,7 @@ com_submitting = false;
 function submitcomment(id){
 	if(!com_submitting){
 		com_submitting=true;
-		var txt=$('#write_com'+id).html();
+		var txt=tinyMCE.get('write_com'+id).getContent();
 		txt=txt.replace(/[&]/g,"%26");
 		var params = "gtxt="+txt+"&geid="+id;
 		var url = "PHP/submitcomment.php";

@@ -7,25 +7,18 @@
     <div id="c_center">
     	Title:
         <br />
-        <input id="titlewrite" name="Ntitle" type="text" value="
-		<?php
-        if(isset($_POST['title'])){
-			echo $_POST['title'];
-			}
-		?>
-        " size="50" maxlength="100" />
+        <input id="titlewrite" name="Ntitle" type="text" value="<?php if(isset($_POST['title'])){echo ($_POST['title']);}?>" size="50" maxlength="100" />
         <br />
         Text:
         <br />
-        <div id="myNicPanel" style="width: 650px; color:#000;">
-        </div>
-        <div id="textwrite" style="font-size: 16px; color:black; background-color: #FFF; padding: 3px; width: 646px; ">
+
+        <textarea id="textwrite" cols="80" rows="20">
 		<?php
         if(isset($_POST['text'])){
 			echo $_POST['text'];
 			}
 		?>
-        </div>
+        </textarea>
         <p style="text-align:center;">
        	<?php
         if(isset($_POST['text']) && isset($_POST['title'])){
@@ -45,9 +38,7 @@
 
 <script type="text/javascript" src="js/nicEdit.js"></script> 
 <script type="text/javascript">
-	var myNicEditor = new nicEditor();
-	myNicEditor.setPanel('myNicPanel');
-	myNicEditor.addInstance('textwrite');
+	setupEditor();
 
 	sending_entry=false;
 	<?php
