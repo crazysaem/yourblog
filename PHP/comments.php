@@ -92,9 +92,4 @@ mysql_close($con);
 	$("#submit_com<?php echo(htmlspecialchars($_GET["gid"]));?>").button().click(function(){
 		submitcomm(<?php echo(htmlspecialchars($_GET["gid"]));?>)
 	});
-	//CKEDITOR.replace("write_com<?php echo(htmlspecialchars($_GET["gid"]));?>");
-	//var myNicEditor = new nicEditor({maxHeight : 100});
-	//myNicEditor.setPanel("myNicPanel<?php echo(htmlspecialchars($_GET["gid"]));?>");
-	//new nicEditor({maxHeight : 100}).panelInstance("write_com<?php echo(htmlspecialchars($_GET["gid"]));?>");
-	//myNicEditor.addInstance("write_com<?php echo(htmlspecialchars($_GET["gid"]));?>");
 </script>

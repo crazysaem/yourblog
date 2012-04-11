@@ -38,7 +38,7 @@
 
 <script type="text/javascript" src="js/nicEdit.js"></script> 
 <script type="text/javascript">
-	setupEditor();
+	setupWrite();
 
 	sending_entry=false;
 	<?php
