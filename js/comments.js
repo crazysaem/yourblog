@@ -11,9 +11,9 @@ function loadcomments(id,reload){
 				$('#com_'+id).html(data);
 				$('.captch').html("");
 				solved=false;
-			$('#ajax-fc-container_'+id).captcha({
-				text: "Verify that you are a human,<br />drag <span>scissors</span> into the circle."
-			});
+				$('#ajax-fc-container_'+id).captcha({
+					text: "Verify that you are a human,<br />drag <span>scissors</span> into the circle."
+				});
 			}
 		);
 	}
