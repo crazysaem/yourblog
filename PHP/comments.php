@@ -57,14 +57,16 @@ mysql_close($con);
     </div>
     <div id="com_center">
        <form>
-        <textarea name="write_com<?php echo(htmlspecialchars($_GET["gid"]));?>" id="write_com<?php echo(htmlspecialchars($_GET["gid"]));?>" cols="73" rows="10"></textarea>
-</form>
+        	<textarea name="write_com<?php echo(htmlspecialchars($_GET["gid"]));?>" id="write_com<?php echo(htmlspecialchars($_GET["gid"]));?>" cols="73" rows="10"></textarea>
+		</form>
         <br/>
-        <!-- Begin of captcha -->	
-        <div class="captch" id="ajax-fc-container_<?php echo(htmlspecialchars($_GET["gid"]));?>">
-            You must enable javascript to see captcha here!
+        <div style="width:314px; margin-left:auto;margin-right:auto;">
+	        <!-- Begin of captcha -->
+            <div class="captch" id="ajax-fc-container_<?php echo(htmlspecialchars($_GET["gid"]));?>">
+                You must enable javascript to see captcha here!
+            </div>
+            <!-- End of captcha -->
         </div>
-        <!-- End of captcha -->
         <p style="text-align:center;">
             <button id="submit_com<?php echo(htmlspecialchars($_GET["gid"]));?>" >
                 comment
