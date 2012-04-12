@@ -48,7 +48,7 @@ $(function() {
 	
 		
 	//check if there is an open Session
-	getrunningSession();
+	//getrunningSession();
 	$("#button-register").button().click(function(){
 		if(cur_site!="register"){
 			$.get('register.html', function(data) {

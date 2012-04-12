@@ -1,5 +1,5 @@
 function loadcomments(id,reload){
-
+	//if html is not loaded or should be reloaded
 	if(reload==1 || $('#com_'+id).html()==""){
 		$.get('PHP/comments.php?gid='+id+'', 
 			function(data) {

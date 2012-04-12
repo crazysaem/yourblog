@@ -1,6 +1,3 @@
-// JavaScript Document
-
-
 function submitlogin(){
 	var http = new XMLHttpRequest();
 	var url = "PHP/checklogin.php";
@@ -22,7 +19,7 @@ function submitlogin(){
 			if(res!="NULL"){
 				$('#login_info').text("Welcome "+res);
 				changeLoginButton();
-				window.location="index.php?";
+				//window.location="index.php?";
 			}
 			else{
 				$('#login_info').text("You are currently not logged in.");

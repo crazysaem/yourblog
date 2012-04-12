@@ -1,6 +1,6 @@
 // JavaScript Document
 
-loadnewentries();
+//loadnewentries();
 
 function loadnewentries(){
 $.get('PHP/entries.php?'+cur_searchString+'&'+cur_dateString+'&'+cur_search_id, function(data) {

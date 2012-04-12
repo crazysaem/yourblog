@@ -3,8 +3,6 @@ function loadcaptcha(){
 				text: "Verify that you are a human,<br />drag <span>scissors</span> into the circle."
 			});
 	}
-
-
 function register(){
 		
 	 changeRegButoon();
@@ -108,5 +106,3 @@ function changeRegButoon(){
 		   	  register();});
 	}
 }
-
-

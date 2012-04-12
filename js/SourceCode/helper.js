@@ -1,14 +1,4 @@
-function checkCap(){
-	if(Recaptcha.get_response().length>4 && Recaptcha.get_response())
-		return true;
-	else 
-		return false;
-//	$.get('PHP/evalcaptcha.php?recaptcha_challenge_field='+Recaptcha.get_challenge()+'&recaptcha_response_field='+Recaptcha.get_response(), 
-//		function(data) {
-//			alert(data); 
-//		}
-//	);
-}
+
 //used to identify the oldest loaded element
 cur_oldestID=0;
 //used for supporting search within the database
