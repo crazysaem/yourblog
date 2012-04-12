@@ -14,7 +14,7 @@ $id=-1;
 $bid='Sentry';
 $bval='Submit entry';
 //Check if there is content to update
-if( isset($_POST["uid"])){
+if( isset($_POST["eid"])){
 	//Check if user is an author or an admin
 	if($lvl <= 1){			
 			{
@@ -23,9 +23,9 @@ if( isset($_POST["uid"])){
 				$statement="SELECT E.ID AS EID,
 						E.Title AS TITLE,
 						E.Text AS TEXT,
-						E.User_ID AS UID,
+						E.User_ID AS UID
 					FROM Entries E 
-					WHERE E.ID = ".$_POST['uid'];
+					WHERE E.ID = ".$_POST['eid'];
 				$result = mysql_query($statement,$con);
 				$row = mysql_fetch_array($result);
 				mysql_close($con);
@@ -46,7 +46,7 @@ if( isset($_POST["uid"])){
 
 <div class="entry">
     <div id="c_top">
-        <b class="topic">Write a new entry</b>
+        <b class="topic"><?php if($id==-1){?>Write a new entry<?php } else {?>Update entry<?php } ?></b>
         <hr />
     </div>
     <div id="c_center">

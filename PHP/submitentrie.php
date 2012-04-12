@@ -14,10 +14,20 @@ if($lvl<=1){
 	}
 	if($txt!="" && $title!=""){
 		include("connect.php"); //returns $con as connection to the yourblog database
-		$statement="INSERT INTO Entries 
-					(Title,Text,User_ID,Date) 
-					VALUES('".$title."','".$txt."',".$_SESSION['ID'].",CURDATE())";
-		mysql_query($statement);
+		if(isset($_POST["eid"])){
+			//UPDATE ENTRY
+			if($lvl==0)
+				$statement="UPDATE Entries SET Title = '".$title."',Text = '".$txt."',Date = CURDATE() WHERE ID = ".$_POST['eid'];
+			else
+				$statement="UPDATE Entries SET Title = '".$title."',Text = '".$txt."',Date = CURDATE() WHERE ID = ".$_POST['eid']." AND User_ID = ".$_SESSION['ID'] ;
+		}
+		else{
+			//INSERT ENTRY
+			$statement="INSERT INTO Entries 
+						(Title,Text,User_ID,Date) 
+						VALUES('".$title."','".$txt."',".$_SESSION['ID'].",CURDATE())";
+		}
+		$result=mysql_query($statement,$con);
 		mysql_close($con);
 		echo "inserted";
 	}
