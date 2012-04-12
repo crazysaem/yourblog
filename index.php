@@ -2,9 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>YourBLog</title>
+<title>YourBlog</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/commentstyle.css" rel="stylesheet" type="text/css" />
 <link type="text/css" href="css/dot-luv/jquery-ui-1.8.18.custom.css" rel="stylesheet">	
 <link href="captcha/captcha.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>

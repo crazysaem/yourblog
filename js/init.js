@@ -57,7 +57,15 @@ $(function() {
 				});
 			}
 		});
-		
+	
+	$("#button-about").button().click(function(){
+		if(cur_site!="about"){
+			$.get('about.html', function(data) {
+				cur_site="about";
+				$('#content').html(data);
+				});
+			}
+		});	
 	$('#button-admin').button().click(function(){
 		if(cur_site!="admin"){
 			loadadmin();
