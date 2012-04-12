@@ -22,6 +22,7 @@ function submitlogin(){
 			if(res!="NULL"){
 				$('#login_info').text("Welcome "+res);
 				changeLoginButton();
+				window.location="index.php?";
 			}
 			else{
 				$('#login_info').text("You are currently not logged in.");
@@ -43,6 +44,7 @@ function changeLoginButton(){
 				$.get("PHP/endsession.php");
 				$('#login_info').text("You are currently not logged in.");
 				changeLoginButton();	
+				window.location="index.php?";
 			});
 		$('#button-login').button().off("click.login");		
 	}

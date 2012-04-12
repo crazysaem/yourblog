@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("escape.php");
 function getwhere(){
 	$statements = array ("","","","","","");
@@ -81,9 +82,22 @@ while($row = mysql_fetch_array($result))
   {
 	//open entriediv
   echo('<div class="entry">');
-  //Topic output		
-  echo('<div id="c_top"> <b class="topic"><a style="color:white;" href="javascript:loaddetail('.$row['ID'].');">'.htmlspecialchars($row['Title']).'</a></b><hr /></div>');
-  //Text output
+  //Topic output	?>	
+  <div id="c_top">
+  	<b class="topic">
+    	<a style="color:white;" href="javascript:loaddetail(<?php echo($row['ID']); ?>);"><?php echo(htmlspecialchars($row['Title'])); ?>
+        </a>
+    </b>
+    <?php if(isset($_SESSION['Level']) && $_SESSION['Level']<=1){?>
+    <a style="color:white;float:right; padding-left:10px" href="javascript:editentry(<?php echo($row['ID']); ?>);">x
+    </a>
+    <a style="color:white;float:right;" href="javascript:remove(<?php echo($row['ID']); ?>);">e
+    </a>
+    <?php } ?>
+    <hr />
+  </div>
+	<?php
+   //Text output
   echo(' <div id="c_center">'.escapebadTags($row['Text']).'</div>');
   //Footer output
   echo('<div id="c_bottom">
