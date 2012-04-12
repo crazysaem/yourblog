@@ -3,18 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>YourBlog</title>
-<link type="text/css" href="css/dot-luv/jquery-ui-1.8.18.custom.css" rel="stylesheet">	
-<link href="captcha/captcha.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-</head>
-<style>
+<style type="text/css">
 form, .ui-dialog-titlebar, .ui-button-text { font-size: 62.5%; }
-	label, input { display:block; }
-	input.text {width:95%; padding: .4em; }
-	
+label, input { display:block; }
+input.text {width:95%; padding: .4em; }
 .waiting {cursor:progress;}
 .com_load {color:white;}	
 </style>
+</head>
+
 <body>
     <div id="header">
     	<img src="pics//Logo.png" alt="Logo" width="358" height="105" align="left" />
@@ -33,7 +31,7 @@ form, .ui-dialog-titlebar, .ui-button-text { font-size: 62.5%; }
         </div>
         <div id="sidebar">
             <div id="s_top">
-            <label for="textfield">Search</label>
+            <label for="search">Search</label>
             <input type="text" name="search" id="search" onkeyup="search();" />
             </div>
             <div id="s_center">
@@ -44,8 +42,6 @@ form, .ui-dialog-titlebar, .ui-button-text { font-size: 62.5%; }
             </div>
         </div>
     </div>
-</body>
-
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/CollList.harmony.js"></script>
@@ -116,4 +112,5 @@ form, .ui-dialog-titlebar, .ui-button-text { font-size: 62.5%; }
 		});
 	};
 </script>
+</body>
 </html>
