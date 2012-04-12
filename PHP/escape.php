@@ -1,7 +1,7 @@
 <?php 
 function escapebadTags($text){
 	$regs;
-	$tags = array("script","span","input");
+	$tags = array("script","input");
 	$exp ="/";
 	foreach($tags as $t){
 		$exp.='<\/?'.$t.'[^>]*>|';

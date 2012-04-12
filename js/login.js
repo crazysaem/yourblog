@@ -41,10 +41,11 @@ function changeLoginButton(){
 		$('#button-login').button( "option", "label", "LOGOUT" )
 			$('#button-login').button().on("click.logout",
 			function(){
-				$.get("PHP/endsession.php");
-				$('#login_info').text("You are currently not logged in.");
-				changeLoginButton();	
-				window.location="index.php?";
+				$.get("PHP/endsession.php",function(data){
+					$('#login_info').text("You are currently not logged in.");
+					changeLoginButton();	
+					window.location="index.php";
+				});
 			});
 		$('#button-login').button().off("click.login");		
 	}
