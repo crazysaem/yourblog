@@ -67,7 +67,6 @@ harmony();</script>
 <script type="text/javascript" src="captcha/jquery.captcha.js"></script>
 <script type="text/javascript" src="tiny_mce/tiny_mce.js"></script> 
 <script type="text/javascript">
-
 function setupEditor() {
 tinyMCE.init({
         mode : "textareas",
@@ -123,7 +122,6 @@ tinyMCE.init({
 		]
 	});
 };
-
 </script>
 </body>
 </html>

@@ -1,4 +1,34 @@
-<?php $update=false; ?>
+<?php 
+//GET USER LEVEL
+session_start();
+$lvl=4;
+if(isset($_SESSION['Level']))
+	$lvl=$_SESSION['Level'];
+?>
+
+<?php $update=false;
+if($lvl <= 1){
+	if( isset($_POST["uid"])){
+		include("connect.php"); //returns $con as connection to the yourblog database
+		$statement="SELECT E.ID,
+				E.Title,
+				E.Text,
+				E.User_ID AS UID,
+			FROM Entries E 
+			WHERE E.ID = ".$_POST['uid'];
+$result = mysql_query($statement,$con);
+$row = mysql_fetch_array($result);
+		mysql_close($con);
+		
+		
+		$update=true;
+		if($_SESSION[]){
+			
+		}
+	}
+}
+?>
+
 <div class="entry">
     <div id="c_top">
         <b class="topic">Write a new entry</b>
