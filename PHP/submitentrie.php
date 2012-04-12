@@ -16,6 +16,9 @@ if($lvl<=1){
 		include("connect.php"); //returns $con as connection to the yourblog database
 		if(isset($_POST["eid"])){
 			//UPDATE ENTRY
+			
+			$txt=$txt."<br/>[edited by ".$_SESSION['Name']."]";
+			
 			if($lvl==0)
 				$statement="UPDATE Entries SET Title = '".$title."',Text = '".$txt."',Date = CURDATE() WHERE ID = ".$_POST['eid'];
 			else
