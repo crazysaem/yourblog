@@ -83,3 +83,12 @@ function submitcomment(id){
 		http.send(params);
 	}
 }
+
+function removecom(comid,entid){
+	$.post("PHP/removecomments.php", { cid: comid },
+		   		function(data) {
+					 if(data=="done")
+						loadcomments(entid,1);					
+		   		}
+			);
+}

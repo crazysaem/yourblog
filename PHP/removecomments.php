@@ -8,7 +8,7 @@ if($lvl==0){
 	if(isset($_POST['pid']))
 		$statement="DELETE FROM Comments WHERE User_ID = ".$_POST['pid'];
 	else if(isset($_POST['cid']))
-		$statment="DELETE FROM Comments WHERE ID = ".$_POST['cid'];
+		$statement="DELETE FROM Comments WHERE ID = ".$_POST['cid'];
 	$result = mysql_query($statement,$con);
 	mysql_close($con);
 	echo "done";

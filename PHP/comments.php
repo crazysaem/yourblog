@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("escape.php");
 include("connect.php");
 //creates the SELECT statement
@@ -20,6 +21,10 @@ while($row = mysql_fetch_array($comresult))
             <b class="topic">
                 Comment <?php echo($c++); ?>
             </b>
+            <?php if(isset($_SESSION['Level']) && $_SESSION['Level']==0){  ?>
+                <a style="color:white;float:right;" href="javascript:removecom(<?php echo($row['ID']); ?>,<?php echo(htmlspecialchars($_GET["gid"]));?>);">x
+                </a>
+            <?php } ?>
             <hr />
         </div>
         <div id="com_center">
