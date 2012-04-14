@@ -39,13 +39,13 @@ if($lvl==0){
 				$mkid="";
 				$is="";
 				if($row['Ulvl']==1){
-					$mk="User";
+					$mk="user";
 					$mkid=2;
-					$is="Author";
+					$is="author";
 				}
 				else{
-					$is="User";
-					$mk="Author";
+					$is="user";
+					$mk="author";
 					$mkid=1;
 				}
 				echo($is);
