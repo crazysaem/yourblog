@@ -52,9 +52,9 @@ input.text {width:95%; padding: .4em; }
 	//check if there is an open Session
 	getrunningSession();
 	loadnewentries();
-	//if browser = chrome do not enable harmony
+	//if browser = chrome AND device is not a mobile device => do not enable harmony
 	var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-	if(!is_chrome) harmony();
+	if(!is_chrome && !jQuery.browser.mobile) harmony();
 	//setup texteditors
 	function setupEditor() {
 	tinyMCE.init({
