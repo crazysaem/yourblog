@@ -252,7 +252,6 @@ function editentry(eid){
 function removeentry(id){
 	$.post('PHP/remove.php', {eid: id},function(data) {
 		if(data=="done"){
-			cur_site="home";
 			loadnewentries();
 		}
 	});

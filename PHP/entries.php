@@ -125,7 +125,7 @@ while($row = mysql_fetch_array($result))
   }
   else{echo('<script type="text/javascript">
 			cur_oldestID=-1;			
- 		</script>');
+ 		</script><font color="white">No results found</font>');
 	  }
 mysql_close($con);
 ?>
